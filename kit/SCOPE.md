@@ -7,7 +7,8 @@ Where context lives: one operator core plus one pack per data domain, connected 
 ```
 core/                      one per person (private repo)
   CORE.md                  entry: conventions, operator, how to route
-  operator.md              who I am, defaults, standards
+  operator.md              who I am, defaults, preferences
+  reporting.md             how my deliverables look and read
   registry.yaml            every domain: where it lives, owner, freshness
   shared-entities.yaml     people, dates and time zones, money, organizations
   glossary.yaml            words I use the same way everywhere

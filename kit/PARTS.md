@@ -1,6 +1,6 @@
 # Parts
 
-The 24 parts of a context engine. Each one exists because an answer was wrong without it.
+The 25 parts of a context engine. Each one exists because an answer was wrong without it.
 
 **Kind** is what a part holds: Sources, Meaning, Business, Operator, Memory, or Checks. Parts that
 are mechanisms rather than documents have no kind. Controls apply to every part.
@@ -25,9 +25,9 @@ classification, not a folder layout; file paths are unchanged from v0.2.
 | 7 | Refusals | Meaning | Referee | The plausible nearest number shipped as the answer | domain | base | `meaning/refusals.yaml` |
 | 8 | Benchmarks | Meaning | Curate | Comparing to an outside number measured differently | domain | add-on `benchmarks` | `meaning/benchmarks.yaml` |
 | 9 | Business context | Business | Curate, Referee | Technically right, analytically wrong | domain + core | base | `meaning/business.md` |
-| 10 | Operator profile | Operator | read by all | Every deliverable different; preferences re-asked | core | base | `core/operator.md` |
+| 10 | Operator profile and reporting standards | Operator | read by all | Every deliverable different; preferences re-asked | core | base | `core/operator.md`, `core/reporting.md` |
 | 11 | Exemplars | Memory | Remember | Rewriting tricky SQL and repeating its traps | domain | base | `memory/exemplars.yaml` |
-| 12 | Recipes | Memory | Remember | Recurring numbers computed differently each time | domain | add-on `recipes` | `memory/recipes/` |
+| 12 | Recipes | Memory | Remember | Recurring analysis computed differently each time; its method lost | domain | base | `memory/recipes/` |
 | 13 | Session log | Memory | Remember | Losing why the last analysis went the way it did | domain | base | `memory/sessions/` |
 | 14 | Question log | Memory | Remember, Learn | Never learning which questions deserve a definition | domain | add-on `question-log` | `memory/questions.jsonl` |
 | 15 | Proposals | Meaning (proposed) | Learn | Nothing learned, or definitions rewritten mid-analysis | domain | base | `proposals/` |
@@ -40,6 +40,7 @@ classification, not a folder layout; file paths are unchanged from v0.2.
 | 22 | Entry point, router and delivery | Control | all | Context not loaded, loaded whole and ignored, or absent at the moment of choice | core + domain | base | `core/CORE.md`, `context/CONTEXT.md` |
 | 23 | Access guards | Control | all | An agent writing to production; truncation read as complete | domain | base | connection config |
 | 24 | Provenance on output | Control | all | A number reused later without its meaning | core rule | base | every answer |
+| 25 | Deliverables | Memory | Remember, Learn | Last month's recommendation forgotten or contradicted; a published report nobody can trace | domain | base | `memory/deliverables.yaml` |
 
 ## Functions
 
@@ -50,11 +51,25 @@ verdict with provenance → session log and question log → proposals and fact 
 | Function | Writes | Reads | Runs |
 |---|---|---|---|
 | Curate | Sources, entities, metrics, glossary, caveats, refusals, benchmarks, tripwires, checklist, router | Profiling results; the operator's answers; business context | At setup, and when the owner rules |
-| Remember | Exemplars, recipes, session log, question log | Meaning and business context | After each answer and each session |
+| Remember | Exemplars, recipes, session log, question log, deliverables | Meaning and business context; earlier deliverables | After each answer, each session, and each artifact produced |
 | Learn | Proposals (meaning); dated edits to sources, entities and caveats (facts); `VERSION` | Session log, question log, exemplars | After a session; the owner rules on proposals |
 | Referee | A verdict and provenance on each answer | Refusals, caveats, business context, checklist, tripwires, goldens, `VERSION` | Before each answer ships, and on each change to context |
 
 The operator profile (10) and the controls (21–24) sit beside the loop: every function reads them.
+
+## Refining a recurring analysis
+
+A recurring analysis (part 12) produces a deliverable (part 25), which raises new questions. Each
+refinement goes one of three ways, by what it changes:
+
+| What changed | Where it goes |
+|---|---|
+| The method: a new step, a new cut, a new source | The recipe: bump its version and add a change-log line |
+| What a number means: a population, a definition, a reading | A proposal, then a ruling (`LEARNING.md`) |
+| How it is presented: section order, a chart, where conclusions go | The reporting standards (`core/reporting.md`), or the recipe's output spec if it applies to this report only |
+
+The next run reads the last deliverable first: what it recommended, what was asked, and what the
+operator said about it.
 
 ## Rules for every part
 
@@ -137,11 +152,12 @@ The operator profile (10) and the controls (21–24) sit beside the loop: every 
 
 ## Operator: who is asking
 
-### 10. Operator profile
-- **Contents:** defaults (time zone, fiscal calendar, units, currency), deliverable format, what the operator always wants, what they push back on, sensitivity rules.
+### 10. Operator profile and reporting standards
+- **Profile (`core/operator.md`):** defaults (time zone, fiscal calendar, units, currency), what the operator always wants, what they push back on, sensitivity rules, phrases they use with a specific meaning.
+- **Reporting standards (`core/reporting.md`):** format and delivery; section order; conclusions and recommendations (placement, formatting, how a recommendation is written); charts; interactivity (tooltips, filters, collapsible notes and data tables); where provenance and caveats go; writing style; versions per audience; recorded exceptions to general advice, with the reason.
 - **Prevents:** every deliverable looking different; the same preference asked in every project.
 - **Minimum:** time zone, default format, three standing preferences.
-- **Rule:** one profile in the core, read by every domain. Not copied per project.
+- **Rules:** one profile and one set of standards in the core, read by every domain, not copied per project. A domain lists only how it differs for an audience, in its `CONTEXT.md`. Standards never override a correctness rule: presentation is the operator's call, accuracy is not.
 
 ## Memory: past work
 
@@ -151,8 +167,11 @@ The operator profile (10) and the controls (21–24) sit beside the loop: every 
 - **Rule:** a golden is never also an exemplar (see `REFEREE.md`, holdout). An exemplar whose frame predates a ruling is re-validated or removed.
 
 ### 12. Recipes
-- **Contents:** purpose, cadence, parameters, preconditions as stop conditions, ordered steps with validation, outputs, required caveats, golden check, dependencies, last run and last *verified*, change log.
-- **Prevents:** a recurring number computed a little differently each time; the method lost when its author leaves.
+A recipe is a remembered analysis: the method for a report you produce again, with what it is for.
+- **Contents:** objective (the decision it feeds), audience, cadence, parameters, sources and rules it depends on, preconditions as stop conditions, ordered steps with validation, watch-for (issues to flag, and when to make a recommendation), output spec (sections and charts for this report; cites the reporting standards rather than repeating them), required caveats, golden check, last run and last *verified*, version and change log.
+- **Prevents:** a recurring analysis computed a little differently each time; the method lost when its author leaves; a report that no longer answers the decision it was built for.
+- **Minimum:** objective, steps, one golden check.
+- **Rule:** a run reads the previous deliverable first and records a new one (part 25). A refinement goes to the recipe, a proposal, or the reporting standards; see "Refining a recurring analysis".
 
 ### 13. Session log
 - **Contents:** trigger, question as asked vs. what it needed, findings that changed context, feedback rounds, goldens re-run, lessons, open threads with ids that carry across sessions and recipes.
@@ -161,6 +180,12 @@ The operator profile (10) and the controls (21–24) sit beside the loop: every 
 ### 14. Question log
 - **Contents:** every ad-hoc query with a required natural-language question, the context it cited, and whether it was refused. Where available, the database's own query history is mined as evidence of common joins and filters.
 - **Rule:** anything asked twice becomes a candidate definition. The log needs a reader: `check` or a scheduled review lists repeated questions. A log nobody reads learns nothing.
+
+### 25. Deliverables
+- **Contents:** per artifact produced: id, title, date, recipe and recipe version (if any), data as-of, meaning `VERSION`, verdict, location and hash (the artifact itself stays where it was published), audience, recommendations made, issues flagged, questions it raised, operator feedback, follow-up (did a recommendation land), superseded_by.
+- **Prevents:** last month's recommendation forgotten or contradicted this month; a published figure nobody can trace to the rules and data that made it; the same question re-raised because nobody recorded that it was asked.
+- **Minimum:** title, date, location, `VERSION`, recommendations made.
+- **Rule:** the record lives in the context pack; the artifact does not. Reports are large and often carry figures the context files must not.
 
 ## Checks: what the referee runs
 

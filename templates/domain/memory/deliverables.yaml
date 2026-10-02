@@ -1,0 +1,29 @@
+# Deliverables — every artifact produced from this domain, and what came of it.
+# The record lives here; the artifact stays where it was published. Reports are large and often
+# carry figures the context files must not.
+# The next run of a recipe reads its latest entry first.
+version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
+
+deliverables:
+  - id: D-YYYY-MM-DD-<slug>
+    title: <as published>
+    produced_on: YYYY-MM-DD
+    recipe: <recipe name, or null for ad hoc>
+    recipe_version: <n>
+    data_as_of: YYYY-MM-DD
+    meaning_version: <VERSION at the time>
+    verdict: PASS | PASS-WITH-CAVEAT | PROVISIONAL | REFUSE
+    location: <path or link>
+    sha256: <hash of the artifact, if a file>
+    audience: <who received it>
+    recommendations:
+      - id: <D-…-R1>
+        text: <the recommendation>
+        follow_up: <open | done YYYY-MM-DD | dropped, why>
+    issues_flagged: [<what the watch-for list caught>]
+    questions_raised: [<questions it prompted>]
+    feedback: >-
+      What the operator or audience said, and where each part was routed (recipe, proposal,
+      reporting standards).
+    superseded_by: <deliverable id, or null>
