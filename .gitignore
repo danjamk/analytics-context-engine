@@ -21,3 +21,9 @@ PR_COMMENT.md
 .env.local
 .claude/settings.local.json
 .claude/skills/*
+
+# Local Codex instructions
+/AGENTS.override.md
+
+# IDE
+.idea/
