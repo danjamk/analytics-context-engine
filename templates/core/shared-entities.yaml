@@ -1,0 +1,25 @@
+# Shared entities — defined once, used by every domain.
+# Data-warehouse practice calls these conformed dimensions. A domain that refers to one of these
+# maps its own keys here instead of defining its own version.
+version: 1
+
+entities:
+  - id: date
+    grain: one local calendar day
+    time_zone: <operator time zone>
+    note: >-
+      Domains store timestamps in UTC unless their sources.yaml says otherwise. Derive the local
+      date with the zone above, never by truncating a UTC timestamp.
+
+  - id: person
+    grain: one human
+    key: <how people are identified across domains, e.g. email>
+    note: <how to map each domain's ids to this key; which domains carry sensitive per-person data>
+
+  - id: money
+    currency: <default currency>
+    note: <conversion rule if domains report in different currencies>
+
+  - id: organization
+    grain: one company or client
+    key: <id>

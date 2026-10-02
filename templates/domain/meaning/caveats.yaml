@@ -1,0 +1,17 @@
+# Caveats — facts about the data that make a naive query wrong.
+# A caveat reports; it does not silently correct. Code that quietly compensates turns a stated
+# limit into a hidden assumption.
+version: 1
+
+caveats:
+  - id: <kebab-case-id>              # e.g. last-month-is-partial
+    applies_to: [<entity or metric ids>]
+    severity: high | medium | low
+    caveat: >-
+      The fact about the data.
+    consequence: >-
+      What goes wrong if it is ignored, with a measured example.
+    do_instead: >-
+      The correct handling.
+    measured_on: YYYY-MM-DD
+    see: [<ruling or golden ids>]

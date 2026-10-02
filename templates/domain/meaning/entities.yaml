@@ -1,0 +1,28 @@
+# Entities — the grains, keys, and joins. A strict superset of the Ossie dataset/relationship core.
+# Coverage figures are measured facts: date them, and re-measure when stale.
+version: 1
+
+entities:
+  - id: <entity-id>                  # e.g. invoice_line
+    grain: <one row per …>           # e.g. "one row per product on an invoice"
+    source: <source-id>.<table>
+    primary_key: [<column>]
+    description: <what this is, in plain language>
+    filter: <SQL predicate that derives this entity from its source, if any>
+    semi_additive:                   # measures that cannot be summed across a dimension
+      - measure: <column>
+        not_over: <dimension, e.g. date>
+    caveats: [<caveat-id>]
+
+relationships:
+  - id: <from>_to_<to>
+    from: <entity-id>
+    to: <entity-id>
+    from_columns: [<col>]
+    to_columns: [<col>]
+    cardinality: <many_to_one | one_to_one>
+    coverage:                        # share of `from` rows that find a match
+      value: <0.0–1.0>
+      measured_on: YYYY-MM-DD
+      query: <SQL that measured it>
+    note: <what is lost when the join misses>

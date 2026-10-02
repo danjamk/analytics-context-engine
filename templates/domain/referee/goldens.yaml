@@ -1,0 +1,34 @@
+# Goldens — questions with human-verified answers. The gate on every change to meaning/.
+# Held out: the agent never reads this file during an analysis, and no golden appears in exemplars.
+# A value the agent computed is not a golden until a human confirms it another way.
+version: 1
+computed_on: YYYY-MM-DD
+
+goldens:
+  - id: G-1
+    question: <plain language>
+    asks_like:
+      - <another phrasing>
+      - <another>
+    kind: structural | windowed
+    frame:
+      grain: <…>
+      population: <…>
+      source: <…>
+      period: <…>
+      denominator: <ratios only>
+    expect:
+      value: <number>                # or: verdict: REFUSE, with refusal: <refusal-id>
+      tolerance: <absolute or %>
+    path:                            # optional: what a correct answer must use
+      tables: [<…>]
+      filters: [<…>]
+    verified: true
+    verified_by: <human>
+    verified_on: YYYY-MM-DD
+    verification_method: <how a human confirmed it — not "ran the SQL below">
+    sql: |
+      -- reference SQL
+    depends_on: [<metric, ruling, caveat ids>]
+    drift:
+      - {date: YYYY-MM-DD, value: <n>, moved: false, cause: <…>}

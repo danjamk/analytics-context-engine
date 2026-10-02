@@ -1,0 +1,25 @@
+# Rulings — decisions that change what a query returns. Each names who decided and what it cost.
+# Never edited, only superseded. Editing meaning bumps VERSION.
+#
+# Ruling, target, or caveat? A target is a number that marks a line and can change without changing
+# meaning. A caveat is a fact about the data. A ruling is how a measurement becomes a judgment: if
+# editing it would make last month's result and this month's incomparable, it is a ruling.
+version: 1
+
+rulings:
+  - id: R-1
+    kind: <exclusion | classification | threshold | source_precedence | unit_conversion | weights | population | grain>
+    decided: >-
+      What was decided, in one or two sentences.
+    rejected: >-
+      The other defensible reading, and its numeric effect (e.g. "including cancellations
+      changes 2011 revenue by <n>%").
+    ruled_by: <owner>
+    ruled_on: YYYY-MM-DD
+    applies_to: [<metric or entity ids>]
+    supersedes: <ruling-id or null>
+    superseded_by: null
+    windows:                         # only for rulings whose values change over time
+      - from: YYYY-MM-DD
+        to: null
+        value: <the parameter in effect>

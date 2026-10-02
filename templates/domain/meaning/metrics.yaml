@@ -1,0 +1,37 @@
+# Metrics — what each number is, and what it is not.
+# A metric not in this file has no definition: ask the owner instead of inventing one.
+# A metric without ruled_by is a draft, and output that uses it says so.
+version: 1
+
+defaults:
+  time_zone: <zone>
+  window: <default period, e.g. "full calendar months only">
+
+metrics:
+  - name: <metric_id>                # e.g. net_revenue
+    label: <as it appears in reports>
+    status: draft | ruled | deprecated
+    ruled_by: <owner>
+    ruled_on: YYYY-MM-DD
+    definition: >-
+      One paragraph in plain language: what it measures and, explicitly, what it excludes.
+    is_not: >-
+      What people will assume this measures that it does not.
+    grain: <what one row of the result means>
+    unit: <currency | count | hours | percent>
+    filter: <population predicate, in SQL>
+    source: <entity.column chosen>
+    rejected_source: <the competing measure not used, and why>
+    period:
+      bucket_by: <column>
+      time_zone: <zone>
+    numerator: <ratios only>
+    denominator: <ratios only — state exactly what is in it and the alternative reading>
+    sql: |
+      -- Authoritative. Read-only. The prose above explains it; this defines it.
+    synonyms: [<other names people use>]
+    caveats: [<caveat-id>]
+    reconciles_to: >-
+      The raw check this metric must tie to, and the tolerance.
+    golden: <golden-id>
+    used_by: [<recipe or report>]

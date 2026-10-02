@@ -1,0 +1,13 @@
+# Registry — every domain I query, and where its context lives.
+# Client domains are not listed here. They register in the client's own workspace.
+version: 1
+
+domains:
+  - id: <domain-id>                  # e.g. retail-demo
+    description: <one line>
+    context: <absolute path to the domain's context/ folder>
+    owner: <who rules on meaning>
+    sources: [<source ids from that domain's sources.yaml>]
+    version: <that domain's VERSION, copied on last sync>
+    last_loaded: YYYY-MM-DD          # freshest source in the domain
+    status: active | stub | retired
