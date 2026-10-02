@@ -3,6 +3,8 @@
 - **Kind:** new_definition | definitional_contradiction | reading_choice | refusal | caveat_promotion | recipe
 - **Target file:** `meaning/<file>.yaml`
 - **Raised by:** <agent / person> during <session>
+- **Review by:** YYYY-MM-DD (`check` reports proposals past this date)
+- **Version impact:** <bumps VERSION / does not, and why>
 
 ## The question that forced it
 <What the analysis had to decide that the context did not.>

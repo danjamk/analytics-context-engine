@@ -48,7 +48,7 @@ semver, following the pattern in agentic-guides. The shared `/release` skill doe
   Before 1.0, any version may change structure; entries say so.
 - Each add-on in `addons/` has its own `addon-<name>-vX.Y` version and changelog.
 - `main` is the latest version. From 1.0, releases are tagged `analytics-context-engine-vX.Y`. Currently
-  **preview** (v0.2): no tags until it has run on two real domains.
+  **preview** (v0.3): no tags until it has run on two real domains.
 - `.claude-plugin/plugin.json` needs semver: keep it at `X.Y.0` matching the kit version.
 
 **Protected branches:** `main`

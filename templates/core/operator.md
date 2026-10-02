@@ -2,7 +2,7 @@
 
 > Who is asking, and how they want answers. Read before any deliverable.
 > Preferences never override a correctness rule.
-> Last reviewed: YYYY-MM-DD
+> Last verified: YYYY-MM-DD
 
 ## Defaults
 

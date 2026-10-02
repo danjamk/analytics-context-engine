@@ -2,6 +2,7 @@
 # A caveat reports; it does not silently correct. Code that quietly compensates turns a stated
 # limit into a hidden assumption.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 caveats:
   - id: <kebab-case-id>              # e.g. last-month-is-partial
@@ -13,5 +14,8 @@ caveats:
       What goes wrong if it is ignored, with a measured example.
     do_instead: >-
       The correct handling.
+    how_it_was_missed: >-
+      The reasoning that let the wrong figure through (e.g. "the total matched last month's
+      report, so nobody checked the filter").
     measured_on: YYYY-MM-DD
     see: [<ruling or golden ids>]

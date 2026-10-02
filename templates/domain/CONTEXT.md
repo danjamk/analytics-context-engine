@@ -1,6 +1,6 @@
 # <Domain> — context entry
 
-**Kit version:** analytics-context-engine-v0.2 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
+**Kit version:** analytics-context-engine-v0.3 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
 
 You are answering questions over <data description>.
 **Load context before answering. Never answer a numeric question from memory or from the schema alone.**
@@ -26,6 +26,19 @@ Operating rules: `<path-to-kit>/kit/CONVENTIONS.md`. Operator profile: `<core>/o
 | Pre-answer checks | `referee/tripwires.sql`, `referee/checklist.md` | before every number |
 | Goldens | `referee/goldens.yaml` | **never during an analysis** (held out); only the `check` skill reads them |
 | Proposed changes awaiting a ruling | `proposals/` | when a proposal applies |
+
+## Precedence
+
+When two documents disagree, this order decides which one wins. Fix the loser; don't answer from it.
+
+1. <e.g. the owner's ruling in `meaning/rulings.yaml`>
+2. <e.g. `meaning/metrics.yaml`>
+3. <e.g. query code and report builders>
+
+## Delivery
+
+<Where else this context reaches the agent: tool descriptions, server instructions, a generated
+checklist. Each one is generated from or cites the files above; none holds a fact of its own.>
 
 ## What is ruled, proposed, and stubbed
 

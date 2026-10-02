@@ -5,10 +5,11 @@
 # meaning. A caveat is a fact about the data. A ruling is how a measurement becomes a judgment: if
 # editing it would make last month's result and this month's incomparable, it is a ruling.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 rulings:
   - id: R-1
-    kind: <exclusion | classification | threshold | source_precedence | unit_conversion | weights | population | grain>
+    kind: <exclusion | classification | threshold | source_precedence | unit_conversion | weights | population | grain | partial_period>
     decided: >-
       What was decided, in one or two sentences.
     rejected: >-
@@ -19,6 +20,10 @@ rulings:
     applies_to: [<metric or entity ids>]
     supersedes: <ruling-id or null>
     superseded_by: null
+    contest: >-
+      The condition under which this ruling should be re-opened (e.g. "if the returns policy
+      changes").
+    open_question: <an unresolved fact this ruling depends on, or null>
     windows:                         # only for rulings whose values change over time
       - from: YYYY-MM-DD
         to: null

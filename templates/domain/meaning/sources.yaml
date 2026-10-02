@@ -1,6 +1,7 @@
 # Sources — where the data comes from, how fresh it is, and what it is missing.
 # Facts here are measured. Update them directly when they change, with the date. (LEARNING.md)
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 sources:
   - id: <source-id>                  # e.g. online_retail_ii
@@ -15,3 +16,17 @@ sources:
     known_gaps:
       - <e.g. "Last month is partial: data ends 2011-12-09.">
     owner: <who to ask about this source>
+    load_health:
+      check_at_session_start: <command or query that shows freshness and gaps>
+      catch_up: <how to size and run a catch-up load>
+      gap_repair: <how to repair a missing window in the middle of history>
+      known_failures:
+        - <e.g. "auth failure used to report 'loaded 0' and exit cleanly">
+
+# Files a person maintains by hand. They go stale without anyone noticing.
+hand_maintained:
+  - path: <e.g. inputs/roster.csv>
+    holds: <what it maps>
+    owner: <who updates it>
+    last_updated: YYYY-MM-DD
+    goes_stale_when: <e.g. "someone joins or changes role">

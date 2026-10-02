@@ -1,6 +1,7 @@
 # Registry — every domain I query, and where its context lives.
 # Client domains are not listed here. They register in the client's own workspace.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 domains:
   - id: <domain-id>                  # e.g. retail-demo
@@ -8,7 +9,7 @@ domains:
     context: <absolute path to the domain's context/ folder>
     owner: <who rules on meaning>
     sources: [<source ids from that domain's sources.yaml>]
-    kit_version: analytics-context-engine-v0.2      # kit version that made or last upgraded the pack
+    kit_version: analytics-context-engine-v0.3      # kit version that made or last upgraded the pack
     version: <that domain's meaning VERSION, copied on last sync>
     last_loaded: YYYY-MM-DD          # freshest source in the domain
     status: active | stub | retired

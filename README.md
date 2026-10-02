@@ -8,7 +8,7 @@ what each metric counts and excludes, who decided that, which traps the data hol
 questions it cannot answer, and a way to check an answer before anyone acts on it. This repo is
 my method for keeping that knowledge, written so an agent can set up its own copy.
 
-**Status:** `analytics-context-engine-v0.2`, **preview**. Not yet run end to end by anyone but me. Version 1.0
+**Status:** `analytics-context-engine-v0.3`, **preview**. Not yet run end to end by anyone but me. Version 1.0
 will be tagged after it has run on two real domains. See the [changelog](CHANGELOG.md).
 
 Who it's for: people who analyze data with a coding agent (Claude Code) and want the agent's
