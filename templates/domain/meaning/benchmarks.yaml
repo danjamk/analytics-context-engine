@@ -1,0 +1,15 @@
+# Benchmarks — external comparators, with provenance and limits.
+# Only useful if the metric means the same thing on both sides.
+version: 1
+
+benchmarks:
+  - id: <id>
+    metric: <metric name>
+    bands:
+      <label>: <value>
+    sources:
+      - <publisher, sample, year>
+    ours: <our value and its as-of date>
+    verdict: <where we sit>
+    limits: >-
+      What would make this comparison invalid, and whether it holds anyway.

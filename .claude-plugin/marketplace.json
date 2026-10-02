@@ -1,0 +1,14 @@
+{
+  "name": "data-brain",
+  "description": "Dan Kuhn's context engine kit for agentic analytics.",
+  "owner": {
+    "name": "Dan Kuhn"
+  },
+  "plugins": [
+    {
+      "name": "data-brain",
+      "source": "./",
+      "description": "Context engine kit for agentic analytics: bootstrap, analyze, referee, propose, recipe, check."
+    }
+  ]
+}

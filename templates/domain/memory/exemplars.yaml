@@ -1,0 +1,20 @@
+# Exemplars — validated question → SQL pairs. Reuse before writing new SQL.
+# A golden question never appears here (held out; see REFEREE.md).
+version: 1
+
+exemplars:
+  - id: E-1
+    question: <as asked>
+    frame:
+      grain: <…>
+      population: <…>
+      source: <…>
+      period: <…>
+    sql: |
+      -- pinned SQL
+    why_this_shape: >-
+      The traps this SQL avoids and why (e.g. "LEFT JOIN because 25% of lines have no customer").
+    validated_on: YYYY-MM-DD
+    reconciliation: <result of tying to the raw sum>
+    origin: user | seed              # seed = machine-generated, replaced on rebuild; user = confirmed
+    cited: 0                         # times reused; prune what is never cited

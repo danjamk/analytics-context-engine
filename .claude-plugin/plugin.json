@@ -1,0 +1,12 @@
+{
+  "name": "data-brain",
+  "version": "0.2.0",
+  "description": "A context engine for agentic analytics: governed definitions, rulings, refusals, goldens and a per-answer referee, kept as plain files your agent reads before it answers.",
+  "author": {
+    "name": "Dan Kuhn",
+    "url": "https://danjamkuhn.com"
+  },
+  "homepage": "https://github.com/danjamk/data-brain",
+  "license": "MIT",
+  "keywords": ["analytics", "semantic-layer", "context", "text-to-sql", "eval", "duckdb"]
+}

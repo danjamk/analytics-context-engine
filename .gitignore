@@ -1,0 +1,23 @@
+# Instances never live in this repo. See kit/PRIVACY.md.
+/instance/
+/core/
+/context/
+
+# Data and local databases (the demo fetches its data; nothing is committed)
+data/
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.parquet
+
+# Secrets
+.env
+.env.*
+
+# Claude
+CLAUDE.local.md
+COMMIT_MESSAGE.md
+PR_COMMENT.md
+.env.local
+.claude/settings.local.json
+.claude/skills/*

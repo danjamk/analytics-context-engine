@@ -1,0 +1,15 @@
+# Refusals — questions this data cannot answer honestly.
+# A refusal is an answer. Every refusal offers what can be said instead.
+version: 1
+
+refusals:
+  - id: <kebab-case-id>
+    asks_like:
+      - <a phrasing that should trigger this refusal>
+      - <another>
+    refuse: >-
+      What cannot be answered.
+    why: >-
+      What is missing from the data, specifically.
+    instead: >-
+      The nearest claim the data does support.

@@ -1,0 +1,27 @@
+# Core — <operator name>
+
+Entry point for every data question I ask, in any project. Read this first, then route.
+
+## Operating rules
+
+@<path-to-kit>/kit/CONVENTIONS.md
+
+## About me
+
+Read `operator.md` before producing any deliverable.
+
+## Where data lives
+
+`registry.yaml` lists every domain, where its context pack lives, who owns its meaning, and how
+fresh it is. To answer a question:
+
+1. Find the domain (or domains) in the registry.
+2. Read that domain's `context/CONTEXT.md` and follow its router.
+3. For a question across domains, join through `shared-entities.yaml`. If an entity has no
+   shared definition, stop and ask.
+
+Client domains are not in this registry. They register in that client's workspace only.
+
+## Words I use everywhere
+
+`glossary.yaml`. A domain's glossary wins inside that domain.

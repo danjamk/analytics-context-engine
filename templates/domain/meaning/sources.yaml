@@ -1,0 +1,17 @@
+# Sources — where the data comes from, how fresh it is, and what it is missing.
+# Facts here are measured. Update them directly when they change, with the date. (LEARNING.md)
+version: 1
+
+sources:
+  - id: <source-id>                  # e.g. online_retail_ii
+    description: <one line>
+    access: <api | database | export | file | mcp>
+    location: <URL, path, or connection name — no secrets>
+    credential_scope: <read-only | n/a>
+    refresh: <how it is loaded, and how often>
+    cache: <local path or table, if cached>
+    last_loaded: YYYY-MM-DD
+    covers: <date range / population actually present>
+    known_gaps:
+      - <e.g. "Last month is partial: data ends 2011-12-09.">
+    owner: <who to ask about this source>

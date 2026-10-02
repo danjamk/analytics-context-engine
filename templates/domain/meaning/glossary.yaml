@@ -1,0 +1,17 @@
+# Glossary — what words mean in this domain, and how typed values map to stored ones.
+version: 1
+
+terms:
+  - term: <customer>
+    means: <precise meaning here>
+    synonyms: [<client>, <buyer>]
+    ruling: <ruling-id, or UNRULED>
+    note: <readings that were rejected>
+
+# Value index — maps what people type to what is stored. Without it, a filter on "UK" returns zero
+# rows and reads as "no sales".
+values:
+  - column: <entity.column>
+    map:
+      <typed value>: <stored value>
+    sample_values: [<a few real stored values, to show the agent the format>]
