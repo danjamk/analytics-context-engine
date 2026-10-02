@@ -52,6 +52,21 @@ PROVISIONAL.
   shows past choices, not intent.
 - **Operator corrections.** When the operator pushes back on a result, the correction is
   usually a reading choice. Write it down.
+- **Deliverables.** Each report records the questions it raised and the operator's feedback
+  (`memory/deliverables.yaml`). The next run of the same recipe starts from them.
+
+## Refining a recurring analysis
+
+Feedback on a recurring report changes one of three things. Route it by what it changes:
+
+| What changed | Where it goes | Gate |
+|---|---|---|
+| The method (a step, a cut, a source) | The recipe: version bump and change-log line | Operator approves the new version |
+| What a number means | A proposal, then a ruling | Owner rules (the routing rule above) |
+| How it is presented | `core/reporting.md`, or the recipe's output spec if it is specific to this report | None: presentation is the operator's call |
+
+One piece of feedback can touch more than one. "Split the backlog by team and drop the closed
+ones" is a method change (the split) and a meaning change (which tickets count as backlog).
 
 ## Memory gradient
 

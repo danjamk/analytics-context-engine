@@ -102,8 +102,10 @@ Re-scoring is an explicit, logged act. Results made under different rules must b
 
 ## 12. Deliverables follow the operator's standards
 
-Before producing a report, chart, or shareable artifact, read the operator profile
-(`core/operator.md`). If it has no standards, ask once and write them down.
+Before producing a report, chart, or shareable artifact, read the reporting standards
+(`core/reporting.md`) and the domain's audience differences in `CONTEXT.md`. If there are no
+standards, ask once and write them down. Record every artifact produced in
+`memory/deliverables.yaml`.
 
 Standards are preferences. They never override a correctness rule: presentation is the
 operator's call, accuracy is not.

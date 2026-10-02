@@ -1,6 +1,6 @@
 # Analytics Context Engine — bootstrap
 
-**Version:** analytics-context-engine-v0.3 (2026-10-02) — preview
+**Version:** analytics-context-engine-v0.4 (2026-10-02) — preview
 
 ---
 
@@ -72,7 +72,7 @@ These instructions are the operator's request, delivered as a file. Follow the p
 4. Summarize in under 12 lines what you will create and where. Wait for a yes.
 
 **Stamp everything you create.** `core/CORE.md`, `context/CONTEXT.md`, and the registry entry record
-the kit version that made them (`analytics-context-engine-v0.3`).
+the kit version that made them (`analytics-context-engine-v0.4`).
 
 ## Phase 1 — Core: interview the operator
 
@@ -85,8 +85,13 @@ Copy `templates/core/` to the core location. Then interview, one question at a t
 5. Anything that must never appear in a deliverable (sensitivity).
 6. Phrases they use with a specific meaning ("lately", "this quarter").
 
-Write `core/operator.md` and `core/glossary.yaml`. Leave "What I push back on" empty; it fills
-from corrections over time. Write `core/CORE.md` with the real path to `kit/CONVENTIONS.md`.
+Write `core/operator.md`, `core/reporting.md` and `core/glossary.yaml`. In `reporting.md`, fill
+only what the operator said; offer to capture the rest (section order, where conclusions go, chart
+and tooltip preferences) after the first deliverable, when there is something concrete to react
+to. Leave "What I push back on" empty; it fills from corrections over time.
+
+If the operator names a report they produce on a schedule, note it in the hand-off as the first
+recipe to capture. Do not build it during the bootstrap. Write `core/CORE.md` with the real path to `kit/CONVENTIONS.md`.
 
 ## Phase 2 — Register the domain and its sources
 
@@ -198,11 +203,12 @@ Then tell the operator three things, in under ten lines:
 1. **What was done:** where the core and domain pack live; what is ruled, draft, and stubbed; how
    many goldens are verified; the open proposals waiting for them.
 2. **How to come back:** ask any data question in that project and the agent loads the context
-   (or use `analyze`); add a domain with `new-domain`; after a kit update, run `upgrade`.
+   (or use `analyze`); turn a report you produce again into a recipe with `recipe`; add a domain
+   with `new-domain`; after a kit update, run `upgrade`.
 3. **One thing to try now:** a question from the refusals list, to see the engine decline it and
    offer what it can answer instead.
 
-Mention that add-ons extend the base install (recipes, a judge pass, drift checks in CI, MCP serving, and
+Mention that add-ons extend the base install (a judge pass, drift checks in CI, MCP serving, and
 more) and are listed at https://github.com/danjamk/analytics-context-engine#add-ons.
 
 ---

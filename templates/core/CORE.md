@@ -1,6 +1,6 @@
 # Core — <operator name>
 
-**Kit version:** analytics-context-engine-v0.3 (YYYY-MM-DD) — the kit version that made or last upgraded this core
+**Kit version:** analytics-context-engine-v0.4 (YYYY-MM-DD) — the kit version that made or last upgraded this core
 
 Entry point for every data question I ask, in any project. Read this first, then route.
 
@@ -10,7 +10,7 @@ Entry point for every data question I ask, in any project. Read this first, then
 
 ## About me
 
-Read `operator.md` before producing any deliverable.
+Read `operator.md` before answering, and `reporting.md` before producing any deliverable.
 
 ## Where data lives
 
@@ -30,6 +30,6 @@ Client domains are not in this registry. They register in that client's workspac
 
 ## Ways to extend
 
-Add-ons extend the core (recipes, a judge pass, drift checks in CI, MCP serving, and more). When
+Add-ons extend the core (a judge pass, drift checks in CI, MCP serving, and more). When
 the operator asks for something this setup can't do yet, check the list at
 https://github.com/danjamk/analytics-context-engine#add-ons and suggest what fits.

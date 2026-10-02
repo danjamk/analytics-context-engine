@@ -17,10 +17,7 @@
 
 ## Deliverables
 
-- Default format: <self-contained HTML, data embedded, no network dependency>
-- Structure: <answer first, then evidence, then caveats>
-- Charts: <preferences>
-- Length: <preferences>
+How reports should look and read: `reporting.md`.
 
 ## What I always want
 

@@ -21,6 +21,36 @@ Before v1.0, any version may change structure, and its entries say so.
 
 ---
 
+## analytics-context-engine-v0.4 (2026-10-02) — preview
+
+Recurring analysis and its outputs. Adds part 25; the kit now has 25 parts. Adds two instance
+files; nothing moves.
+
+- **Recipes are base, and carry their purpose.** Affects: `memory/recipes/`, `context/CONTEXT.md`
+  router. The `recipes` add-on is retired. Recipes gain objective, audience, depends-on, watch-for
+  (what to flag, when to recommend), an output spec that cites the reporting standards, and
+  before/after-run steps that read and write the deliverables record.
+  Existing instances: recommended where a report is produced on a schedule.
+  How to apply: add objective, audience and a watch-for table to each existing recipe; move any
+  presentation rules out of the recipe into `core/reporting.md` unless they apply to that report
+  only. Remove `recipes` from "Add-ons installed".
+- **Reporting standards get their own core file.** Affects: new `core/reporting.md`;
+  `core/operator.md` (Deliverables section now points to it); `context/CONTEXT.md` (new
+  "Reporting differences for this domain" section); `CONVENTIONS.md` §12.
+  Existing instances: recommended.
+  How to apply: create `core/reporting.md` from the template; move format, structure and chart
+  preferences out of `operator.md` and out of any per-project standards file into it. In each
+  domain, list only how that domain differs by audience.
+- **Part 25, Deliverables.** Affects: new `memory/deliverables.yaml`; router row added.
+  Existing instances: recommended.
+  How to apply: create the file from the template and add an entry for the most recent artifact
+  of each recurring report, with its recommendations and their status. The artifact stays where
+  it is; record its location and hash.
+- **Refining a recurring analysis.** Affects: kit only (`PARTS.md`, `LEARNING.md`, `recipe` and
+  `analyze` skills). Feedback is routed by what it changes: method to the recipe, meaning to a
+  proposal, presentation to the reporting standards.
+  Existing instances: not needed.
+
 ## analytics-context-engine-v0.3 (2026-10-02) — preview
 
 From a review of three working deployments against the kit. Every new field is optional; an
