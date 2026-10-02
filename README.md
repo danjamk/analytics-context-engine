@@ -8,7 +8,7 @@ what each metric counts and excludes, who decided that, which traps the data hol
 questions it cannot answer, and a way to check an answer before anyone acts on it. This repo is
 my method for keeping that knowledge, written so an agent can set up its own copy.
 
-**Status:** `analytics-context-engine-v0.4`, **preview**. Not yet run end to end by anyone but me. Version 1.0
+**Status:** `analytics-context-engine-v0.5`, **preview**. Not yet run end to end by anyone but me. Version 1.0
 will be tagged after it has run on two real domains. See the [changelog](CHANGELOG.md).
 
 Who it's for: people who analyze data with a coding agent (Claude Code) and want the agent's
@@ -30,8 +30,12 @@ numbers to hold up. For a personal notes "brain" for non-technical people, see
    meaning lives with that domain.
 
 Platforms now ship semantic layers, verified queries, and offline eval suites. Use them. What this
-kit adds is the per-answer referee and the governance of meaning, in a form that works across
-tools and for one person. See `research/landscape.md` for where the market stands.
+kit adds is the per-answer referee and the governance of meaning (rulings with owners), in a form
+that works across tools and for one person. See `research/landscape.md` for where the market stands.
+
+**Not covered: data governance.** Access control, row-level security and audit are assumed to come
+from your data source. The context files themselves have owners and git history, but nothing
+enforces who may change or read them. See `kit/SCOPE.md`.
 
 ## Use it
 
@@ -69,6 +73,7 @@ a guide the agent follows, the same way it follows `BOOTSTRAP.md`. Conventions: 
 | Add-on | What it adds | Worth it when | Status |
 |---|---|---|---|
 | `question-log` | Logs every question asked, and mines the database's own query history for common joins and filters | You want to learn which questions deserve a definition | Planned |
+| `actions` | Turns a recipe's result into a guarded write: an alert, or a list pushed to another system. Dry run, verdict gate, approval limits, undo | A report's recommendation is routinely acted on by hand | Available (`addons/addon-actions.md`) |
 | `judge` | An independent judge pass on answers, calibrated against your goldens before its verdicts count | Answers go to people who will act on them | Planned |
 | `drift-ci` | Runs goldens and context checks on every change and on a schedule | The data refreshes regularly, or more than one person edits the context | Planned |
 | `benchmarks` | External comparison figures with their sources and limits | People ask "is that good?" | Planned |
@@ -91,7 +96,7 @@ a guide the agent follows, the same way it follows `BOOTSTRAP.md`. Conventions: 
 | `BOOTSTRAP.md` | The setup guide an agent follows (base install) |
 | `CHANGELOG.md` | What changed in each version, written for upgrading an existing instance |
 | `addons/` | Add-on guides and the conventions for writing them |
-| `kit/` | The rules: `CONVENTIONS`, `PARTS` (the 25 parts), `REFEREE`, `LEARNING`, `SCOPE`, `FORMAT`, `PRIVACY` |
+| `kit/` | The rules: `CONVENTIONS`, `PARTS` (the 26 parts), `REFEREE`, `LEARNING`, `SCOPE`, `FORMAT`, `PRIVACY` |
 | `templates/core/` | The operator's core: profile, registry, shared entities, glossary |
 | `templates/domain/` | A domain pack: `meaning/`, `memory/`, `referee/`, `proposals/` |
 | `skills/` | `bootstrap`, `new-domain`, `analyze`, `referee`, `propose`, `check`, `upgrade`, `recipe` |

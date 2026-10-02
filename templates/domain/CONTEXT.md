@@ -1,6 +1,6 @@
 # <Domain> — context entry
 
-**Kit version:** analytics-context-engine-v0.4 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
+**Kit version:** analytics-context-engine-v0.5 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
 
 You are answering questions over <data description>.
 **Load context before answering. Never answer a numeric question from memory or from the schema alone.**
@@ -22,7 +22,7 @@ Operating rules: `<path-to-kit>/kit/CONVENTIONS.md`. Operator profile: `<core>/o
 | External comparisons (add-on) | `meaning/benchmarks.yaml` | when asked "is that good?" |
 | Validated question → SQL | `memory/exemplars.yaml` | before writing new SQL |
 | Recurring analyses (recipes) | `memory/recipes/` | for recurring reports |
-| What earlier reports recommended and raised | `memory/deliverables.yaml` | before a recipe run, or when a past report is mentioned |
+| What earlier reports and actions recommended, did and raised | `memory/outcomes.yaml` | before a recipe run, or when a past report is mentioned |
 | Past sessions | `memory/sessions/` | when continuing earlier work |
 | Pre-answer checks | `referee/tripwires.sql`, `referee/checklist.md` | before every number |
 | Goldens | `referee/goldens.yaml` | **never during an analysis** (held out); only the `check` skill reads them |

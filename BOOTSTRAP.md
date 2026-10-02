@@ -1,6 +1,6 @@
 # Analytics Context Engine — bootstrap
 
-**Version:** analytics-context-engine-v0.4 (2026-10-02) — preview
+**Version:** analytics-context-engine-v0.5 (2026-10-02) — preview
 
 ---
 
@@ -72,7 +72,7 @@ These instructions are the operator's request, delivered as a file. Follow the p
 4. Summarize in under 12 lines what you will create and where. Wait for a yes.
 
 **Stamp everything you create.** `core/CORE.md`, `context/CONTEXT.md`, and the registry entry record
-the kit version that made them (`analytics-context-engine-v0.4`).
+the kit version that made them (`analytics-context-engine-v0.5`).
 
 ## Phase 1 — Core: interview the operator
 

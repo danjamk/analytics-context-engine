@@ -1,13 +1,16 @@
-# Deliverables — every artifact produced from this domain, and what came of it.
+# Outcomes — what analyses from this domain produced or did, and what came of it.
+# Types: artifact (a report or file), live (a refresh of a deployed report or pipeline),
+# action (a run of an action from actions/, sent or held).
 # The record lives here; the artifact stays where it was published. Reports are large and often
 # carry figures the context files must not.
 # The next run of a recipe reads its latest entry first.
 version: 1
 last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
-deliverables:
-  - id: D-YYYY-MM-DD-<slug>
-    title: <as published>
+outcomes:
+  - id: O-YYYY-MM-DD-<slug>
+    type: artifact | live | action
+    title: <as published, or the action name>
     produced_on: YYYY-MM-DD
     recipe: <recipe name, or null for ad hoc>
     recipe_version: <n>
@@ -18,7 +21,7 @@ deliverables:
     sha256: <hash of the artifact, if a file>
     audience: <who received it>
     recommendations:
-      - id: <D-…-R1>
+      - id: <O-…-R1>
         text: <the recommendation>
         follow_up: <open | done YYYY-MM-DD | dropped, why>
     issues_flagged: [<what the watch-for list caught>]
@@ -26,4 +29,15 @@ deliverables:
     feedback: >-
       What the operator or audience said, and where each part was routed (recipe, proposal,
       reporting standards).
-    superseded_by: <deliverable id, or null>
+    superseded_by: <outcome id, or null>
+
+    # type: live only
+    held: <false, or the check that failed and held this publish>
+
+    # type: action only
+    action: <name in actions/>
+    target_system: <where it was sent>
+    records_sent: <n, or 0 if held>
+    approval: <per-run by <who> | pre-approved within limits>
+    idempotency_key: <key>
+    undo: <how it was or can be undone>

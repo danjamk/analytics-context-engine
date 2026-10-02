@@ -33,6 +33,10 @@ looks complete is a wrong answer.
 
 If a task appears to need a write, stop and say so.
 
+The one exception is an action defined under the `actions` add-on (`kit/PARTS.md` part 26): a
+named write with its own write-scoped credential, a dry run, a verdict gate, approval, and an undo
+path. Analysis never uses that credential, and an action never runs from an ad hoc analysis.
+
 ## 3. Loud fail beats silent wrong
 
 A refused answer costs a round trip. A confident wrong number costs a decision.
@@ -105,7 +109,7 @@ Re-scoring is an explicit, logged act. Results made under different rules must b
 Before producing a report, chart, or shareable artifact, read the reporting standards
 (`core/reporting.md`) and the domain's audience differences in `CONTEXT.md`. If there are no
 standards, ask once and write them down. Record every artifact produced in
-`memory/deliverables.yaml`.
+`memory/outcomes.yaml`.
 
 Standards are preferences. They never override a correctness rule: presentation is the
 operator's call, accuracy is not.

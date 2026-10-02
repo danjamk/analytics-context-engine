@@ -1,0 +1,38 @@
+# Action — a guarded write to an outside system. Add-on `actions` (addons/addon-actions.md).
+# Analysis stays read-only. This file is the only place a write is defined, and it runs only
+# through the guards below. One file per action: actions/<name>.yaml
+version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
+
+name: <kebab-case-name>             # e.g. push-lapsed-customers-to-campaign
+does: >-
+  One sentence: what it sends, to which system, and why.
+target_system: <system and object, e.g. "campaign tool, list: lapsed-customers">
+credential: <name of a write-scoped credential, separate from every read credential — no secrets here>
+input:
+  recipe: <recipe whose output this takes>
+  shape: <columns or fields sent>
+
+dry_run: >-
+  How to show exactly what would be sent without sending it: the records, their count, and the
+  target. Shown before the first live run and after any change to this file.
+
+gate:
+  verdicts_allowed: [PASS, PASS-WITH-CAVEAT]   # never PROVISIONAL or REFUSE
+  tripwires: <all green | list>
+  goldens: <the recipe's golden check must pass>
+
+approval:
+  mode: per_run | pre_approved
+  approver: <who>
+  limits:                           # pre_approved only; anything outside them needs a per-run yes
+    max_records: <n>
+    allowed_targets: [<list or object ids>]
+    max_runs_per: <e.g. 1 per day>
+
+idempotency_key: <how the key is built, e.g. "<recipe>-<data_as_of>"; a repeat with the same key is skipped>
+undo: >-
+  How to reverse it, and how long that stays possible. "Cannot be undone" is a valid answer and
+  forces per-run approval.
+
+records_to: memory/outcomes.yaml    # every run, sent or held, with type: action

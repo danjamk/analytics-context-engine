@@ -52,8 +52,8 @@ PROVISIONAL.
   shows past choices, not intent.
 - **Operator corrections.** When the operator pushes back on a result, the correction is
   usually a reading choice. Write it down.
-- **Deliverables.** Each report records the questions it raised and the operator's feedback
-  (`memory/deliverables.yaml`). The next run of the same recipe starts from them.
+- **Outcomes.** Each report, live refresh or action records the questions it raised and the operator's feedback
+  (`memory/outcomes.yaml`). The next run of the same recipe starts from them.
 
 ## Refining a recurring analysis
 

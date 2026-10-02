@@ -3,6 +3,8 @@
 > **Objective:** <the decision this analysis feeds, in the owner's words>
 > **Audience:** <who reads it, and what they do with it>
 > **Cadence:** <monthly | quarterly | on demand>
+> **Publish:** <manual | live | action:<name>> — live runs the golden check before every publish
+> and holds on failure; action hands the result to `actions/<name>.yaml` (add-on `actions`)
 > **Owner:** <name> · **Version:** <n> · **Created:** YYYY-MM-DD
 > **Last run:** YYYY-MM-DD · **Last verified:** YYYY-MM-DD
 
@@ -23,7 +25,7 @@
 A failed gate stops the run. It is reported as the finding; it is not waived because the report is due.
 
 ## Before running
-Read the latest entry for this recipe in `memory/deliverables.yaml`: what it recommended, the
+Read the latest entry for this recipe in `memory/outcomes.yaml`: what it recommended, the
 questions it raised, and the operator's feedback. Say what changed since then.
 
 ## Steps
@@ -53,7 +55,7 @@ Follows `core/reporting.md`. Only what is specific to this report:
 Mismatch → the recipe is marked **needs re-validation** and does not ship.
 
 ## After running
-Add an entry to `memory/deliverables.yaml`: recipe version, data as-of, `VERSION`, verdict,
+Add an entry to `memory/outcomes.yaml`: recipe version, data as-of, `VERSION`, verdict,
 location, recommendations, questions raised. Route feedback by what it changes (PARTS.md,
 "Refining a recurring analysis").
 

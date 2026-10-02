@@ -14,6 +14,9 @@ This repository holds the kit: rules, templates, skills, research. It never hold
   to. Within an instance, the agent reads the target only in the workspace that holds it; a
   client's knowledge base is never pointed at from another client's domain.
 
+This file covers what may be published from this repo. Who may read or change an instance is
+governance, which the kit does not cover; see `SCOPE.md`, "Not covered: governance".
+
 There is no scrubbed version of an instance file. If a kit file needs instance content to make
 sense, the kit file is wrong: fix it at the source so the next change is clean.
 

@@ -11,7 +11,7 @@ Template: `<base>/../../templates/domain/memory/recipes/recipe.md`. Background:
 ## Run
 1. Read `context/memory/recipes/<name>.md`, `<core>/reporting.md`, and the domain's audience
    differences in `CONTEXT.md`.
-2. Read the latest entry for this recipe in `memory/deliverables.yaml`. Note open
+2. Read the latest entry for this recipe in `memory/outcomes.yaml`. Note open
    recommendations, questions raised, and feedback.
 3. Check every precondition. A failed gate stops the run and is reported as the finding.
 4. Execute the steps with the given parameters; validate each step's output.
@@ -19,8 +19,14 @@ Template: `<base>/../../templates/domain/memory/recipes/recipe.md`. Background:
 6. Run the golden check. Mismatch → mark the recipe **needs re-validation** and do not ship.
 7. Build the deliverable to the output spec and the reporting standards. Open with what changed
    since the last run, including the status of its recommendations.
-8. Add an entry to `memory/deliverables.yaml`. Update last run (and last verified, if a human
-   confirmed the output).
+8. Publish by the recipe's publish mode:
+   - `manual`: hand the artifact to the operator.
+   - `live`: publish only if every tripwire and the golden check passed. Otherwise hold, leave the
+     last good version up, and say which check failed.
+   - `action:<name>`: follow `actions/<name>.yaml`. Show the dry run, check the verdict gate
+     (PASS or PASS-WITH-CAVEAT only) and approval, then send.
+9. Add an entry to `memory/outcomes.yaml` with its type, including held publishes and held
+   actions. Update last run (and last verified, if a human confirmed the output).
 
 ## Refine
 When the operator gives feedback on a run, route each part by what it changes:
