@@ -4,34 +4,36 @@ The 24 parts of a context engine. Each one exists because an answer was wrong wi
 
 **Scope:** *core* = about the operator, shared across all data. *domain* = about one body of
 data. See `SCOPE.md`.
+**Install:** *base* parts are set up by `BOOTSTRAP.md`. *Add-on* parts are installed later from
+`addons/` when they are worth the effort (see the Add-ons table in `README.md`).
 **File:** where the part lives in an instance. Templates are in `templates/`.
 
-| # | Part | Function | Prevents | Scope | File |
-|---|---|---|---|---|---|
-| 1 | Source registry | Curate | Stale or partial data read as complete | domain (+ core index) | `meaning/sources.yaml` |
-| 2 | Entities and grain | Curate | Double counting; joins that drop rows | domain (+ core shared) | `meaning/entities.yaml` |
-| 3 | Metrics | Curate | Same name, different WHERE clause | domain | `meaning/metrics.yaml` |
-| 4 | Glossary and value index | Curate | Question words mapped to the wrong thing | domain (+ core) | `meaning/glossary.yaml` |
-| 5 | Rulings | Curate | Definitions changing silently; history restated | domain | `meaning/rulings.yaml` |
-| 6 | Caveats | Curate | A clean query returning a wrong number | domain | `meaning/caveats.yaml` |
-| 7 | Refusals | Referee | The plausible nearest number shipped as the answer | domain | `meaning/refusals.yaml` |
-| 8 | Benchmarks | Curate | Comparing to an outside number measured differently | domain | `meaning/benchmarks.yaml` |
-| 9 | Business context | Curate | Technically right, analytically wrong | domain + core | `meaning/business.md` |
-| 10 | Operator profile | Remember | Every deliverable different; preferences re-asked | core | `core/operator.md` |
-| 11 | Exemplars | Remember | Rewriting tricky SQL and repeating its traps | domain | `memory/exemplars.yaml` |
-| 12 | Recipes | Remember | Recurring numbers computed differently each time | domain | `memory/recipes/` |
-| 13 | Session log | Remember | Losing why the last analysis went the way it did | domain | `memory/sessions/` |
-| 14 | Question log | Remember | Never learning which questions deserve a definition | domain | `memory/questions.jsonl` |
-| 15 | Proposals | Learn | Nothing learned, or definitions rewritten mid-analysis | domain | `proposals/` |
-| 16 | Goldens | Referee | A definition edit silently restating history | domain | `referee/goldens.yaml` |
-| 17 | Tripwires | Referee | Trusting an answer built on broken data | domain | `referee/tripwires.sql` |
-| 18 | Checklist and verdicts | Referee | A number shipped without its conditions | core template + domain | `referee/checklist.md` |
-| 19 | Version and drift loop | Referee | Results made under different rules looking identical | domain | `VERSION` |
-| 20 | Judge pass | Referee | Right number, wrong grain or unfair comparison | core | skill `judge` |
-| 21 | Conventions | Control | Behavior varying by session | core | `kit/CONVENTIONS.md` |
-| 22 | Entry point and router | Control | Context not loaded, or loaded whole and ignored | core + domain | `core/CORE.md`, `context/CONTEXT.md` |
-| 23 | Access guards | Control | An agent writing to production; truncation read as complete | domain | connection config |
-| 24 | Provenance on output | Control | A number reused later without its meaning | core rule | every answer |
+| # | Part | Function | Prevents | Scope | Install | File |
+|---|---|---|---|---|---|---|
+| 1 | Source registry | Curate | Stale or partial data read as complete | domain (+ core index) | base | `meaning/sources.yaml` |
+| 2 | Entities and grain | Curate | Double counting; joins that drop rows | domain (+ core shared) | base | `meaning/entities.yaml` |
+| 3 | Metrics | Curate | Same name, different WHERE clause | domain | base | `meaning/metrics.yaml` |
+| 4 | Glossary and value index | Curate | Question words mapped to the wrong thing | domain (+ core) | base | `meaning/glossary.yaml` |
+| 5 | Rulings | Curate | Definitions changing silently; history restated | domain | base | `meaning/rulings.yaml` |
+| 6 | Caveats | Curate | A clean query returning a wrong number | domain | base | `meaning/caveats.yaml` |
+| 7 | Refusals | Referee | The plausible nearest number shipped as the answer | domain | base | `meaning/refusals.yaml` |
+| 8 | Benchmarks | Curate | Comparing to an outside number measured differently | domain | add-on `benchmarks` | `meaning/benchmarks.yaml` |
+| 9 | Business context | Curate | Technically right, analytically wrong | domain + core | base | `meaning/business.md` |
+| 10 | Operator profile | Remember | Every deliverable different; preferences re-asked | core | base | `core/operator.md` |
+| 11 | Exemplars | Remember | Rewriting tricky SQL and repeating its traps | domain | base | `memory/exemplars.yaml` |
+| 12 | Recipes | Remember | Recurring numbers computed differently each time | domain | add-on `recipes` | `memory/recipes/` |
+| 13 | Session log | Remember | Losing why the last analysis went the way it did | domain | base | `memory/sessions/` |
+| 14 | Question log | Remember | Never learning which questions deserve a definition | domain | add-on `question-log` | `memory/questions.jsonl` |
+| 15 | Proposals | Learn | Nothing learned, or definitions rewritten mid-analysis | domain | base | `proposals/` |
+| 16 | Goldens | Referee | A definition edit silently restating history | domain | base | `referee/goldens.yaml` |
+| 17 | Tripwires | Referee | Trusting an answer built on broken data | domain | base | `referee/tripwires.sql` |
+| 18 | Checklist and verdicts | Referee | A number shipped without its conditions | core template + domain | base | `referee/checklist.md` |
+| 19 | Version and drift loop | Referee | Results made under different rules looking identical | domain | base (scheduled runs: add-on `drift-ci`) | `VERSION` |
+| 20 | Judge pass | Referee | Right number, wrong grain or unfair comparison | core | add-on `judge` | `referee` skill, judge pass |
+| 21 | Conventions | Control | Behavior varying by session | core | base | `kit/CONVENTIONS.md` |
+| 22 | Entry point and router | Control | Context not loaded, or loaded whole and ignored | core + domain | base | `core/CORE.md`, `context/CONTEXT.md` |
+| 23 | Access guards | Control | An agent writing to production; truncation read as complete | domain | base | connection config |
+| 24 | Provenance on output | Control | A number reused later without its meaning | core rule | base | every answer |
 
 ---
 

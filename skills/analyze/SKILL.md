@@ -18,7 +18,7 @@ Never query first and interpret later. The kit lives at `<base>/../../`.
    denominator (ratios).
 5. **Tripwires.** Run `referee/tripwires.sql`. Record every value.
 6. **Query.** Read-only. Prefer, in order: a recipe, a metric's `sql`, an exemplar, new SQL.
-   Log the question to `memory/questions.jsonl`.
+   If the `question-log` add-on is installed, log the question to `memory/questions.jsonl`.
 7. **Reconcile** the reported total to a raw sum of the source.
 8. **Referee.** Walk `referee/checklist.md`. Assign a verdict: PASS · PASS-WITH-CAVEAT ·
    PROVISIONAL · REFUSE.

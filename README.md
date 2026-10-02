@@ -8,7 +8,12 @@ what each metric counts and excludes, who decided that, which traps the data hol
 questions it cannot answer, and a way to check an answer before anyone acts on it. This repo is
 my method for keeping that knowledge, written so an agent can set up its own copy.
 
-**Status:** version 0.2.0, in active use and still changing. Built and tested on my own work first.
+**Status:** `data-brain-v0.2`, **preview**. Not yet run end to end by anyone but me. Version 1.0
+will be tagged after it has run on two real domains. See the [changelog](CHANGELOG.md).
+
+Who it's for: people who analyze data with a coding agent (Claude Code) and want the agent's
+numbers to hold up. For a personal notes "brain" for non-technical people, see
+[agentic-guides](https://github.com/danjamk/agentic-guides).
 
 ## The idea in five points
 
@@ -30,28 +35,67 @@ tools and for one person. See `research/landscape.md` for where the market stand
 
 ## Use it
 
-As a Claude Code plugin (untested in this release):
+In Claude Code, paste:
+
+```
+Please read https://raw.githubusercontent.com/danjamk/data-brain/main/BOOTSTRAP.md and follow its instructions to set up a context engine for my data.
+```
+
+The agent reads the guide, fetches the kit, interviews you, and builds a **core** (your defaults
+and standards) and one **domain pack** (one body of data). It takes about an hour, mostly
+answering questions about what your numbers mean.
+
+Or install it as a Claude Code plugin, which adds the skills as slash commands (not yet tested):
 
 ```
 /plugin marketplace add danjamk/data-brain
 /plugin install data-brain@data-brain
 ```
 
-Then ask: "set up data-brain for <your data>". The `bootstrap` skill follows `BOOTSTRAP.md`.
+Your instance goes in your own private repos. Never in this one.
 
-Without the plugin: clone this repo and ask your agent to follow `BOOTSTRAP.md`.
+## Coming back
 
-Your instance (core and domain packs) goes in your own private repos. Never in this one.
+- **After the kit changes**, read the [changelog](CHANGELOG.md). Each entry says whether instances
+  made by older versions need it. Ask your agent to run `upgrade`: it reads the entries newer than
+  your instance's stamp, explains them, and applies only what you approve.
+- **To go further than the base install**, pick an add-on below.
+
+## Add-ons
+
+The base install covers the parts every context engine needs. Add-ons take it further. Each one is
+a guide the agent follows, the same way it follows `BOOTSTRAP.md`. Conventions: `addons/AUTHORING.md`.
+
+| Add-on | What it adds | Worth it when | Status |
+|---|---|---|---|
+| `recipes` | Re-runnable procedures for recurring reports, with preconditions and a golden check | You produce the same report monthly or quarterly | Planned |
+| `question-log` | Logs every question asked, and mines the database's own query history for common joins and filters | You want to learn which questions deserve a definition | Planned |
+| `judge` | An independent judge pass on answers, calibrated against your goldens before its verdicts count | Answers go to people who will act on them | Planned |
+| `drift-ci` | Runs goldens and context checks on every change and on a schedule | The data refreshes regularly, or more than one person edits the context | Planned |
+| `benchmarks` | External comparison figures with their sources and limits | People ask "is that good?" | Planned |
+| `mcp` | Serves a domain pack over MCP: summary-first context and a guarded SQL tool | You want the same context in Claude Desktop or another client | Planned |
+| `ossie-export` | Exports metrics and entities to Apache Ossie, for Snowflake, dbt, Cube and others | You also use a vendor semantic layer | Planned |
+| `team` | Shared memory tiers, proposals as pull requests, domain owners | More than one person asks questions of the same data | Idea |
+
+## Versions
+
+- The kit's version is in `VERSION` and at the top of `BOOTSTRAP.md`: `data-brain-vX.Y`.
+- Everything the kit creates is stamped with the version that made it.
+- Minor versions change wording and templates. Major versions change the structure of an instance.
+  Before 1.0, any version may change structure; the changelog says when.
+- `main` is the latest version. Releases from 1.0 on are also tagged `data-brain-vX.Y`.
 
 ## What's here
 
 | Path | Holds |
 |---|---|
-| `BOOTSTRAP.md` | The setup procedure an agent follows |
+| `BOOTSTRAP.md` | The setup guide an agent follows (base install) |
+| `CHANGELOG.md` | What changed in each version, written for upgrading an existing instance |
+| `addons/` | Add-on guides and the conventions for writing them |
 | `kit/` | The rules: `CONVENTIONS`, `PARTS` (the 24 parts), `REFEREE`, `LEARNING`, `SCOPE`, `FORMAT`, `PRIVACY` |
 | `templates/core/` | The operator's core: profile, registry, shared entities, glossary |
 | `templates/domain/` | A domain pack: `meaning/`, `memory/`, `referee/`, `proposals/` |
-| `skills/` | `bootstrap`, `new-domain`, `analyze`, `referee`, `propose`, `recipe`, `check` |
+| `skills/` | `bootstrap`, `new-domain`, `analyze`, `referee`, `propose`, `check`, `upgrade`, `recipe` (add-on) |
 | `research/` | Market log, landscape matrix, benchmark numbers with sources |
 | `lab/` | Hands-on trials of tools and ideas |
 | `examples/retail/` | Public demo pack on UCI Online Retail II (planned) |

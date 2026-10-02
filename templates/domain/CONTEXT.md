@@ -1,5 +1,7 @@
 # <Domain> — context entry
 
+**Kit version:** data-brain-v0.2 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
+
 You are answering questions over <data description>.
 **Load context before answering. Never answer a numeric question from memory or from the schema alone.**
 
@@ -17,9 +19,9 @@ Operating rules: `<path-to-kit>/kit/CONVENTIONS.md`. Operator profile: `<core>/o
 | What words mean here; value lookups | `meaning/glossary.yaml` | when a term is unclear |
 | Who decided what, and why | `meaning/rulings.yaml` | when a definition is questioned |
 | How this business works; who asks what | `meaning/business.md` | for "why" and "should" questions |
-| External comparisons | `meaning/benchmarks.yaml` | when asked "is that good?" |
+| External comparisons (add-on) | `meaning/benchmarks.yaml` | when asked "is that good?" |
 | Validated question → SQL | `memory/exemplars.yaml` | before writing new SQL |
-| Re-runnable procedures | `memory/recipes/` | for recurring reports |
+| Re-runnable procedures (add-on) | `memory/recipes/` | for recurring reports |
 | Past sessions | `memory/sessions/` | when continuing earlier work |
 | Pre-answer checks | `referee/tripwires.sql`, `referee/checklist.md` | before every number |
 | Goldens | `referee/goldens.yaml` | **never during an analysis** (held out); only the `check` skill reads them |
@@ -45,6 +47,12 @@ Operating rules: `<path-to-kit>/kit/CONVENTIONS.md`. Operator profile: `<core>/o
 duckdb -readonly <path>.duckdb
 ```
 
-## Version
+## Versions
 
-`VERSION` holds the meaning version. Bump it when a number or a meaning changes.
+- **Kit version** (top of this file): which data-brain version made or last upgraded this pack.
+- **Meaning version** (`VERSION`): bump it when a number or a meaning changes. Stored judgments carry it.
+
+## Add-ons installed
+
+| Add-on | Version | Installed |
+|---|---|---|
