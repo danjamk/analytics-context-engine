@@ -10,7 +10,7 @@ instances. Phase 0 of `BOOTSTRAP.md` and the `upgrade` skill explain how to use 
 Entry format:
 
 ```
-### data-brain-vX.Y (YYYY-MM-DD)
+### analytics-context-engine-vX.Y (YYYY-MM-DD)
 - **<What changed>.** Affects: <instance file and section, or "kit only">.
   Existing instances: recommended | optional | not needed.
   How to apply: <one or two sentences, as intent>.
@@ -21,10 +21,12 @@ Before v1.0, any version may change structure, and its entries say so.
 
 ---
 
-## data-brain-v0.2 (2026-10-01) — preview
+## analytics-context-engine-v0.2 (2026-10-01) — preview
 
 First public version.
 
+- **Renamed from data-brain.** Affects: version stamps and links. Existing instances: not needed
+  (none were made under the old name). The old GitHub URLs redirect.
 - **Base install and add-ons.** Affects: kit only. `BOOTSTRAP.md` sets up the base parts;
   benchmarks, recipes, the question log, the judge pass, and scheduled drift checks are add-ons.
   Existing instances: not needed. Parts you already have stay; list them under "Add-ons installed"

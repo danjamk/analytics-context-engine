@@ -1,4 +1,4 @@
-# data-brain — working on this repo
+# analytics-context-engine — working on this repo
 
 This is the public kit. It is read by strangers and installed into their projects.
 
@@ -39,7 +39,7 @@ plugin with `claude plugin validate .` before a release.
 **The kit is versioned as a guide, not as software.** This is a deliberate exception to repo-wide
 semver, following the pattern in agentic-guides. The shared `/release` skill does not apply.
 
-- The kit version is `data-brain-vX.Y`, in `VERSION` and in the `BOOTSTRAP.md` header. Every
+- The kit version is `analytics-context-engine-vX.Y`, in `VERSION` and in the `BOOTSTRAP.md` header. Every
   instance file the kit creates records the version that made it.
 - `CHANGELOG.md` is written for an agent upgrading an older instance: each entry names what it
   affects, whether existing instances need it, and how to apply it. The version bump and the
@@ -47,7 +47,7 @@ semver, following the pattern in agentic-guides. The shared `/release` skill doe
 - Minor bump for wording and template fixes. Major bump when an instance's structure changes.
   Before 1.0, any version may change structure; entries say so.
 - Each add-on in `addons/` has its own `addon-<name>-vX.Y` version and changelog.
-- `main` is the latest version. From 1.0, releases are tagged `data-brain-vX.Y`. Currently
+- `main` is the latest version. From 1.0, releases are tagged `analytics-context-engine-vX.Y`. Currently
   **preview** (v0.2): no tags until it has run on two real domains.
 - `.claude-plugin/plugin.json` needs semver: keep it at `X.Y.0` matching the kit version.
 
