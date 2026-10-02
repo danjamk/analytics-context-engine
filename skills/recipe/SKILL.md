@@ -5,6 +5,9 @@ description: Run or capture a recipe — a parameterized, re-runnable procedure 
 
 # Recipe
 
+Part of the `recipes` add-on. If the domain's `CONTEXT.md` does not list it under "Add-ons
+installed", say so and offer the add-on (see the README's Add-ons table).
+
 Template: `<base>/../../templates/domain/memory/recipes/recipe.md`.
 
 ## Run

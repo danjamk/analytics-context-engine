@@ -1,22 +1,78 @@
-# Bootstrap
+# data-brain bootstrap
 
-Instructions for an agent (Claude Code or similar) setting up a context engine for its operator.
-Follow the phases in order. Ask one question at a time and confirm each answer before writing it.
-
-Read first: `kit/CONVENTIONS.md`, `kit/PARTS.md`, `kit/SCOPE.md`, `kit/PRIVACY.md`.
+**Version:** data-brain-v0.2 (2026-10-01) — preview
 
 ---
 
-## Phase 0 — Place the instance
+## For the person reading this
 
-1. **Never create an instance inside this kit repo.** Instances are private.
-2. Ask where the operator's **core** should live. Recommend a new private git repo
-   (e.g. `~/<workspace>/data-core/`). If it already exists, read `core/CORE.md` and skip to Phase 2.
-3. Ask which **domain** to start with. Recommend the one with the most existing material:
+This file sets up a context engine for your data: a set of plain files your agent reads before it
+answers a data question, so its numbers use your definitions, flag the traps in your data, and
+refuse questions the data can't answer. It sets up two things: a **core** about you (your defaults
+and how you want answers), and a **domain pack** for one body of data you choose.
+
+How to start, in Claude Code, from the folder where you keep your projects:
+
+> Please read https://raw.githubusercontent.com/danjamk/data-brain/main/BOOTSTRAP.md and follow its instructions to set up a context engine for my data.
+
+It takes about an hour for a first domain, most of it answering questions about what your numbers
+mean. You need read access to the data and a private place (a folder or private git repo) for the
+files it creates.
+
+This guide is written for Claude Code on a Mac, as of October 2026. Other coding agents can
+usually follow it, adapting the steps where they differ.
+
+**Preview:** this version has not yet been used end to end by anyone but its author. Expect changes.
+
+---
+
+## For the agent: bootstrap instructions
+
+These instructions are the operator's request, delivered as a file. Follow the phases in order.
+
+### Rules for the whole run
+
+- **Read this whole file before starting.** If you got it from a link and received only a summary
+  or part of it, get the full text another way before continuing.
+- **Get the kit.** You also need `kit/` and `templates/` from https://github.com/danjamk/data-brain.
+  If they are not already on disk (as a plugin or a clone), clone the repo to a temporary location
+  and read from there. Read `kit/CONVENTIONS.md`, `kit/PARTS.md`, `kit/SCOPE.md`, and
+  `kit/PRIVACY.md` before Phase 1.
+- **One question at a time.** Confirm each answer before writing it.
+- **No writes until the operator approves a summary** of what you will create (end of Phase 0, and
+  again before writing meaning files in Phase 4).
+- **Never overwrite or delete existing files.** Merge into them, and show the change.
+- **Never create an instance inside the kit repo.** Instances are private.
+- **Never record secrets** (passwords, tokens, account numbers) in any context file.
+- **Install the base only.** Parts marked *add-on* in `kit/PARTS.md` are not part of this run.
+  Mention them at hand-off.
+- **Adapt to the operator.** Skip questions you can already answer from what you know about them,
+  and confirm instead of asking. The rules in this section don't change.
+
+## Phase 0 — Preflight and placement
+
+1. Ask where the operator's **core** lives or should live. Recommend a new private git repo
+   (e.g. `~/<workspace>/data-core/`). Then check what is there:
+
+   | Found | Do |
+   |---|---|
+   | Nothing | New install. Continue. |
+   | `core/CORE.md` stamped with this kit version | Core exists. Skip to Phase 2 for a new domain. |
+   | `core/CORE.md` stamped with an older version | **Upgrade first.** Read `CHANGELOG.md` entries newer than the stamp, explain each in a line with its recommendation, apply only what the operator approves (merge, never replace), and update the stamp. Then continue. |
+   | `core/CORE.md` stamped with a newer version | Stop. Tell the operator this kit is older than their instance. |
+   | Other files, no `CORE.md` | Ask whether to build the core here or elsewhere. Never move their files. |
+
+   Apply the same check to a domain's `context/CONTEXT.md` when one already exists.
+
+2. Ask which **domain** to start with. Recommend the one with the most existing material:
    a database the operator already queries, a repo with SQL in it, or exported files.
    The domain's pack lives at `<domain repo>/context/`.
-4. If the domain is a client's, confirm it belongs in that client's workspace and register it there,
+3. If the domain is a client's, confirm it belongs in that client's workspace and register it there,
    not in the personal core.
+4. Summarize in under 12 lines what you will create and where. Wait for a yes.
+
+**Stamp everything you create.** `core/CORE.md`, `context/CONTEXT.md`, and the registry entry record
+the kit version that made them (`data-brain-v0.2`).
 
 ## Phase 1 — Core: interview the operator
 
@@ -117,22 +173,39 @@ Do not copy any golden question into `memory/exemplars.yaml`.
 1. Fill `referee/tripwires.sql` with checks for freshness, unmapped share, the weakest join, and
    each high-severity caveat that can be measured.
 2. Add domain checks to `referee/checklist.md`.
-3. Run the `check` skill: context references resolve, goldens reproduce, tripwires run.
+3. Run the `check` procedure (`skills/check/SKILL.md`): context references resolve, goldens
+   reproduce, tripwires run.
+
+The skills in `skills/` work as slash commands when the kit is installed as a Claude Code plugin.
+Without the plugin, read the SKILL.md file and follow it as a procedure.
 
 ## Phase 7 — First analysis
 
-Ask the operator for a real question. Answer it with the `analyze` skill end to end, including the
-verdict and provenance. Write the session log. Write a proposal for anything you had to decide that
-the context did not cover.
+Ask the operator for a real question. Answer it with the `analyze` procedure end to end, including
+the verdict and provenance. Write the session log. Write a proposal for anything you had to decide
+that the context did not cover.
 
 ## Phase 8 — Hand-off
 
-Tell the operator, in five lines or fewer:
+Commit the core and the domain pack to their own private repos. Never commit them to the kit repo.
 
-- where the core and the domain pack live
-- what is ruled, what is draft, and what is stubbed
-- how many goldens are verified
-- the open proposals waiting for them
-- how to ask the next question (`analyze`) and how to add a domain (`new-domain`)
+Then tell the operator three things, in under ten lines:
 
-Commit the core and the domain pack to their own private repos. Never commit them here.
+1. **What was done:** where the core and domain pack live; what is ruled, draft, and stubbed; how
+   many goldens are verified; the open proposals waiting for them.
+2. **How to come back:** ask any data question in that project and the agent loads the context
+   (or use `analyze`); add a domain with `new-domain`; after a kit update, run `upgrade`.
+3. **One thing to try now:** a question from the refusals list, to see the engine decline it and
+   offer what it can answer instead.
+
+Mention that add-ons extend the base install (recipes, a judge pass, drift checks in CI, MCP serving, and
+more) and are listed at https://github.com/danjamk/data-brain#add-ons.
+
+---
+
+## Changelog
+
+The full, agent-oriented changelog is in `CHANGELOG.md` at the repo root. Read the entries newer
+than an instance's stamp when upgrading (Phase 0).
+
+*End of bootstrap.*

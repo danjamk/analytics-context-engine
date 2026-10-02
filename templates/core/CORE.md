@@ -1,5 +1,7 @@
 # Core — <operator name>
 
+**Kit version:** data-brain-v0.2 (YYYY-MM-DD) — the kit version that made or last upgraded this core
+
 Entry point for every data question I ask, in any project. Read this first, then route.
 
 ## Operating rules
@@ -25,3 +27,9 @@ Client domains are not in this registry. They register in that client's workspac
 ## Words I use everywhere
 
 `glossary.yaml`. A domain's glossary wins inside that domain.
+
+## Ways to extend
+
+Add-ons extend the core (recipes, a judge pass, drift checks in CI, MCP serving, and more). When
+the operator asks for something this setup can't do yet, check the list at
+https://github.com/danjamk/data-brain#add-ons and suggest what fits.
