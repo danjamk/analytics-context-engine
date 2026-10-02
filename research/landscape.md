@@ -1,8 +1,9 @@
 # Landscape
 
-Which products cover which of the kit's 24 parts (`kit/PARTS.md`), as of **2026-09-30**.
-Sources for each product are in `log.md` and in the source list below. Vendor features change
-monthly; check the log for anything newer.
+Which products cover which of the kit's 24 parts (`kit/PARTS.md`), as of **2026-09-30**, with
+rows 18 and 20 corrected on 2026-10-02. Sources for each product are in `log.md` and in the source
+list below. Vendor features change monthly; check the log for anything newer. All of it is
+read-about: no product here has been tried in `lab/` yet.
 
 ## Coverage matrix
 
@@ -38,6 +39,10 @@ All 24 parts are defined in this kit; the matrix shows the market, not the kit.
 | 23 | Access guards | ◐ private fields | ◐ | ? | ● accessible_views | ● strict mode | ● | ◐ |
 | 24 | Provenance on each number | — | — | ◐ cites sources | — | ◐ dry-plan SQL | ◐ context provenance | — |
 
+Rows 18 and 20, outside the products above (2026-10-02): Anthropic's internal data agent puts a
+confidence tier on every answer and runs a review before delivery; Lightdash scans every agent turn
+after delivery, for admins. See `log.md`.
+
 ¹ OpenMetadata 2.0, DataHub, Atlan. Also checked: dbt (parts 2, 3, 12 via saved queries; out-of-scope questions return errors), Looker (glossary, golden queries GA 2026-08-28, Prism evals), Omni (branch eval vs. main), MotherDuck Guides (versioned markdown context, no learn loop), Fivetran Context Layer (writes agent traces, including assumptions made, back to the warehouse). Vanna's open-source repo was archived 2026-03-29.
 ## What is commodity and what is not
 
@@ -48,8 +53,9 @@ access guards (23); the offline drift loop (19a); learn-from-use with a human ap
 **Not shipped by anyone reviewed:** rulings with owner, rejected reading, and supersedes (5);
 structured refusals with an alternative (7); external benchmarks with stated limits (8); the
 fact/meaning split in learning (15b); goldens verified by a second method (16); tripwires that
-change the answer (17); graded verdicts (18); a rules version stamped on stored results (19b);
-an independent judge at answer time (20); a referee that works across platforms.
+change the answer (17); graded verdicts (18), though Anthropic runs them internally; a rules
+version stamped on stored results (19b); a judge that reviews the answer before delivery without
+seeing the agent's reasoning (20); a referee that works across platforms.
 
 ## Sources
 
