@@ -1,6 +1,6 @@
 # Analytics Context Engine — bootstrap
 
-**Version:** analytics-context-engine-v0.2 (2026-10-01) — preview
+**Version:** analytics-context-engine-v0.3 (2026-10-02) — preview
 
 ---
 
@@ -72,7 +72,7 @@ These instructions are the operator's request, delivered as a file. Follow the p
 4. Summarize in under 12 lines what you will create and where. Wait for a yes.
 
 **Stamp everything you create.** `core/CORE.md`, `context/CONTEXT.md`, and the registry entry record
-the kit version that made them (`analytics-context-engine-v0.2`).
+the kit version that made them (`analytics-context-engine-v0.3`).
 
 ## Phase 1 — Core: interview the operator
 
@@ -155,13 +155,17 @@ For every two-reading choice, offer a recommended default. Write answers as ruli
 Ask also: which questions should this data refuse? Write them to `meaning/refusals.yaml`, each
 with an `instead`.
 
-Write `meaning/business.md` from what the operator says about who asks and why. Keep it to a page.
+Ask whether this business knowledge already lives somewhere the agent can read (a notes repo, a
+wiki, a personal knowledge base). If it does, fill in the **Pointers** table in
+`meaning/business.md` and keep the rest short. If not, write `meaning/business.md` from what the
+operator says about who asks and why. Keep it to a page.
 
 ## Phase 5 — Goldens
 
 Ask the operator for 5 numbers they already know from another source: a report, a statement,
 a vendor dashboard, a hand count. Those become goldens with `verified: true` and the source as the
-verification method. Include at least one question the data should refuse, as an expected REFUSE.
+verification method. If the source is a file (an export, a statement), commit it under
+`referee/tieouts/` with its hash and record it under `tieouts`. Include at least one question the data should refuse, as an expected REFUSE.
 
 Where the operator cannot supply a check, write the golden with `verified: false`. It does not
 gate anything until a human confirms it.

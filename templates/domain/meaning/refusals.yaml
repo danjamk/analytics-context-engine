@@ -1,6 +1,7 @@
 # Refusals — questions this data cannot answer honestly.
 # A refusal is an answer. Every refusal offers what can be said instead.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 refusals:
   - id: <kebab-case-id>

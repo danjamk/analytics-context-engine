@@ -111,7 +111,18 @@ operator's call, accuracy is not.
 Default where the operator has no preference: a self-contained artifact with the data embedded
 and no runtime network dependency.
 
-## 13. Instances are private
+## 13. One source per fact
+
+A fact lives in one file. A checklist item, an index, a check script's expected value, a tool
+description or a report header that needs it is generated from that file or cites it by id. A
+hand-copied value drifts, and drift between documents is the most common way a context pack goes
+wrong.
+
+Where you can, bind the file to the code with a test: the schema, the query code, or the goldens.
+A file the agent only reads is advice; a file a test checks is enforced. Each file carries
+`last_verified`, the date a person last confirmed it still matches the data.
+
+## 14. Instances are private
 
 Nothing from an instance (`core/`, `context/`) is published, pasted into a public repo, or
 quoted across a client boundary. See `PRIVACY.md`.

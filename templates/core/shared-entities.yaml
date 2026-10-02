@@ -2,6 +2,7 @@
 # Data-warehouse practice calls these conformed dimensions. A domain that refers to one of these
 # maps its own keys here instead of defining its own version.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 entities:
   - id: date

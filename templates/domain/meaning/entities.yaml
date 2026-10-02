@@ -1,6 +1,7 @@
 # Entities — the grains, keys, and joins. A strict superset of the Ossie dataset/relationship core.
 # Coverage figures are measured facts: date them, and re-measure when stale.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 entities:
   - id: <entity-id>                  # e.g. invoice_line

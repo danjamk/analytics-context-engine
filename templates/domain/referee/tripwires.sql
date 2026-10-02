@@ -21,5 +21,10 @@ FROM <table>
 -- UNION ALL  orphan rate on the weakest join
 -- UNION ALL  double-count guard (parent/child)
 -- UNION ALL  agreement between two measures of the same quantity
--- UNION ALL  partial last period
+-- UNION ALL  partial last period: the newest period is incomplete until a stated cutoff
+--            (e.g. a day counts as filed once its volume reaches 60% of the trailing peak).
+--            Apply the same cutoff to numerators and denominators.
 ;
+
+-- Context checks (run by the `check` skill, not SQL): dangling references between files,
+-- files past their last_verified review interval, proposals past review_by.

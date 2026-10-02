@@ -15,6 +15,14 @@ Spec: `<base>/../../kit/REFEREE.md` §2 and §6.
    listed as stale.
 4. No golden `question` or `asks_like` phrasing appears in `memory/exemplars.yaml`.
 5. Every refusal has an `instead`. Every ruled metric has `ruled_by` and `sql`.
+6. Files whose `last_verified` (or "Last verified" line) is older than the review interval in
+   `CONTEXT.md` (default 90 days) are listed for review.
+7. Proposals past their `review_by` date are listed, oldest first. A stalled ruling stops learning.
+8. Expected values in check scripts that are not read from `goldens.yaml` are flagged as copies.
+9. Rulings superseded since the newest verified golden that depends on them are flagged: the
+   goldens may not cover the current rule.
+10. If `memory/questions.jsonl` exists: questions asked twice or more with no metric or exemplar
+    are listed as candidate definitions.
 
 ## Goldens
 For each golden with `verified: true`: run its SQL, compare to `expect` within tolerance, and record

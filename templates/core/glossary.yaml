@@ -1,6 +1,7 @@
 # Glossary — words the operator uses the same way in every domain.
 # A domain glossary overrides this one inside that domain.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 terms:
   - term: <this quarter>

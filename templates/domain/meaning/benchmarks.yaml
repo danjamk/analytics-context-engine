@@ -1,6 +1,7 @@
 # Benchmarks — external comparators, with provenance and limits.
 # Only useful if the metric means the same thing on both sides.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 benchmarks:
   - id: <id>
@@ -13,3 +14,5 @@ benchmarks:
     verdict: <where we sit>
     limits: >-
       What would make this comparison invalid, and whether it holds anyway.
+    history:                         # comparisons withdrawn, so they are not made again
+      - {date: YYYY-MM-DD, withdrawn: <the comparison>, why: <reason>}

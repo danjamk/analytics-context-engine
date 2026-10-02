@@ -1,6 +1,7 @@
 # Exemplars — validated question → SQL pairs. Reuse before writing new SQL.
 # A golden question never appears here (held out; see REFEREE.md).
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 exemplars:
   - id: E-1

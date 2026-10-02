@@ -4,6 +4,12 @@ Newest first. Format and rules: `README.md`.
 
 ---
 
+### 2026-10-02 — Gap claims re-checked: two need narrower wording
+- **What:** A second pass tried to falsify the "not shipped by anyone" list in `landscape.md`. Still unshipped as products: rulings with rejected readings, external benchmarks with limits, the fact/meaning split, tripwires that change the answer, a rules version stamped on stored results, goldens verified a second way. Two claims were too broad. Graded verdicts exist in Anthropic's internal data agent (a confidence tier on every answer). Runtime review exists in two forms: Anthropic's internal review before delivery, and Lightdash scanning every agent turn after delivery for admins. A judge that reviews the answer before the user sees it, without seeing the agent's reasoning, was not found.
+- **Source:** https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude (2026-06-03); https://docs.lightdash.com/agents/issues (date not shown).
+- **Means:** Opinion: "no product ships it" still holds for verdicts and a blind runtime judge, but "nobody does it" does not. That the vendor of the model had to build these for its own data team supports the gap rather than closing it. `landscape.md` rows 18 and 20 corrected.
+- **Tags:** research · write
+
 ### 2026-09-30 — Landscape review: offline referee has shipped; per-answer referee has not
 - **What:** A review of 14 products against the kit's 24 parts. Snowflake, Hex, Cube, Wren (Enterprise), Omni, and Looker ship eval suites that re-run test questions when context changes and report regressions; Databricks ships a partial version. Most also suggest context edits from usage for a human to approve. None ships tripwires that change an answer, graded verdicts, expected-refusal tests, or goldens verified by a second method.
 - **Source:** `landscape.md` (this repo).
@@ -105,6 +111,12 @@ Newest first. Format and rules: `README.md`.
 - **Source:** https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents
 - **Means:** Automated authority ranking replaces a ruling with a score. The kit keeps rulings explicit. The holdout rule (benchmarks out of context) is now in REFEREE.md.
 - **Tags:** release · write
+
+### 2026-06-03 — Anthropic describes its internal self-service data agent
+- **What:** Anthropic's data team routes every data question through a semantic layer by default, adds skills and business context, and runs an adversarial review skill before delivery. Every answer ends with a footer: source tier, confidence tier, review round, freshness (max date in the data), and owning team. Corrections become pull requests tagged to the domain owner. Reported accuracy: 21% without skills, over 95% with them (vendor-reported). The review added 6% accuracy at 72% higher latency (vendor-reported).
+- **Source:** https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude
+- **Means:** Opinion: the closest published practice to the kit's per-answer referee, and internal, not a product. It treats the semantic layer as required but not sufficient. The freshness line discloses but does not block, and the reviewer appears to see the working (not verified), so tripwires and a blind judge remain open.
+- **Tags:** research · watch · write
 
 ### 2026-05-28 — DataHub Context Platform (private beta)
 - **What:** Mines query logs for proven joins and filters. Context Hub lets experts approve context and simulate its effect on text-to-SQL before publishing. An open-source analytics agent drafts context proposals and waits for the user's approval.

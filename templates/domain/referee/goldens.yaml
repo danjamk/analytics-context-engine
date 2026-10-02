@@ -1,7 +1,10 @@
 # Goldens — questions with human-verified answers. The gate on every change to meaning/.
 # Held out: the agent never reads this file during an analysis, and no golden appears in exemplars.
 # A value the agent computed is not a golden until a human confirms it another way.
+# Check scripts read expected values from this file. Never copy them into a script.
+# Refresh the goldens when the rulings they cover change.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 computed_on: YYYY-MM-DD
 
 goldens:
@@ -26,9 +29,22 @@ goldens:
     verified: true
     verified_by: <human>
     verified_on: YYYY-MM-DD
-    verification_method: <how a human confirmed it — not "ran the SQL below">
+    verification_method: <how a human confirmed it — not "ran the SQL below". Strongest: a tie-out below>
+    tieout: <tie-out id, if verified against an outside figure>
     sql: |
       -- reference SQL
     depends_on: [<metric, ruling, caveat ids>]
     drift:
       - {date: YYYY-MM-DD, value: <n>, moved: false, cause: <…>}
+
+# External tie-outs: an outside party's own figure (a system-of-record export, a statement, a
+# published total). The only check that catches an assumption every internal query shares.
+# Commit the file with its hash. Add a new dated file; never overwrite one.
+tieouts:
+  - id: T-1
+    file: referee/tieouts/<source>-YYYY-MM-DD.csv
+    sha256: <hash>
+    source: <who produced it, and how it was obtained>
+    received_on: YYYY-MM-DD
+    is_not: <what it must not be used for, e.g. "not a denominator">
+    known_properties: [<e.g. "first month is partial">]

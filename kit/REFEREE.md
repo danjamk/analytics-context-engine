@@ -32,6 +32,15 @@ Questions with known answers, used to check that the engine still answers them c
 6. **Two kinds.** *Structural* goldens derive only from fixed source data and must never move.
    *Windowed* goldens sit behind a rolling window and move by design; re-pin them when the
    window explains the move and investigate when it does not.
+7. **External tie-outs are the strongest second method.** An outside party's own figure (a
+   system-of-record export, a statement, a published total), committed with its hash and never
+   overwritten, catches an assumption that every internal query shares. Record it under
+   `tieouts` in `goldens.yaml`.
+8. **One copy of each expected value.** Check scripts read `expect` from `goldens.yaml`. A value
+   copied into a script drifts from the file.
+9. **Refresh when the rules change.** A golden set built before a ruling changed does not cover
+   it. When a ruling that a golden depends on is superseded, add or re-verify a golden under the
+   new rule.
 
 Start with 8–15. Five is enough to begin.
 

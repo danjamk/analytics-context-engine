@@ -1,5 +1,6 @@
 # Glossary — what words mean in this domain, and how typed values map to stored ones.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 terms:
   - term: <customer>

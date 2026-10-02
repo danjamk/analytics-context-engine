@@ -1,7 +1,9 @@
 # Metrics — what each number is, and what it is not.
 # A metric not in this file has no definition: ask the owner instead of inventing one.
 # A metric without ruled_by is a draft, and output that uses it says so.
+# No current values here: a value pinned at one load disagrees with the goldens at the next.
 version: 1
+last_verified: YYYY-MM-DD           # date a person last confirmed this file still matches the data
 
 defaults:
   time_zone: <zone>
@@ -35,3 +37,11 @@ metrics:
       The raw check this metric must tie to, and the tolerance.
     golden: <golden-id>
     used_by: [<recipe or report>]
+
+# Metrics computed once, found unsupportable, and removed. Kept so they are not rebuilt.
+absent:
+  - name: <metric_id>
+    removed_on: YYYY-MM-DD
+    why: >-
+      What made it unsupportable (e.g. "the completion timestamp is null on every row").
+    instead: <what to answer with, or a refusal id>

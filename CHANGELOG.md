@@ -21,6 +21,49 @@ Before v1.0, any version may change structure, and its entries say so.
 
 ---
 
+## analytics-context-engine-v0.3 (2026-10-02) — preview
+
+From a review of three working deployments against the kit. Every new field is optional; an
+instance made by v0.2 keeps working unchanged. No files move.
+
+- **Parts are classified by kind as well as function.** Affects: kit only (`kit/PARTS.md`).
+  Kinds: Sources, Meaning, Business, Operator, Memory, Checks; the drift loop and judge pass are
+  mechanisms; parts 21–24 are controls. Part numbers and file paths are unchanged.
+  Existing instances: not needed.
+- **One source per fact; bind context to code; `last_verified` on every file.** Affects: every
+  instance file; new `CONVENTIONS.md` §13 (Instances are private is now §14).
+  Existing instances: recommended.
+  How to apply: add `last_verified` to each YAML file and a "Last verified" line to each Markdown
+  file, dated when a person last confirmed it. Where a value is copied into a second file (a
+  checklist item, a check script, a tool description), generate it or cite the source id instead.
+- **Business context can be pointers.** Affects: `meaning/business.md`.
+  Existing instances: optional.
+  How to apply: if this knowledge already lives elsewhere, add a Pointers table (read, for, when)
+  and shorten the rest.
+- **New optional fields.** Affects: `meaning/rulings.yaml` (`contest`, `open_question`, kind
+  `partial_period`), `meaning/caveats.yaml` (`how_it_was_missed`), `meaning/benchmarks.yaml`
+  (`history`), `meaning/metrics.yaml` (an `absent` list; no current values in definitions),
+  `meaning/sources.yaml` (`load_health`, `hand_maintained`), `proposals/` (review-by date, version
+  impact).
+  Existing instances: optional; recommended for `how_it_was_missed` and proposal review dates.
+  How to apply: add the fields as entries are next touched. Remove any current values pinned in
+  metric definitions.
+- **External tie-outs for goldens.** Affects: `referee/goldens.yaml`, `kit/REFEREE.md` §1.
+  Existing instances: recommended where an outside figure exists.
+  How to apply: commit the outside party's export under `referee/tieouts/` with its hash, record
+  it under `tieouts`, and point the goldens it verifies at it. Make check scripts read expected
+  values from `goldens.yaml`.
+- **Router gains precedence and delivery.** Affects: `context/CONTEXT.md`. Part 22 is renamed
+  "Entry point, router and delivery".
+  Existing instances: recommended.
+  How to apply: add a Precedence list (which document wins when two disagree) and a Delivery note
+  listing tool descriptions or server instructions that carry context, each generated from or
+  citing the files.
+- **`check` reports more.** Affects: kit only (`skills/check`). Files past their review interval,
+  proposals past review-by, copied expected values, goldens that predate a superseded ruling, and
+  repeated questions in the question log.
+  Existing instances: not needed.
+
 ## analytics-context-engine-v0.2 (2026-10-01) — preview
 
 First public version.

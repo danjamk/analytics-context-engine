@@ -9,6 +9,10 @@ This repository holds the kit: rules, templates, skills, research. It never hold
 - Real table names, project keys, hostnames, people's names, or figures from any client or
   personal dataset.
 - `.env` files, credentials, data files.
+- Pointers from `meaning/business.md` to private locations (a notes repo, a personal knowledge
+  base, an internal wiki). The pointer stays in the private instance with the content it points
+  to. Within an instance, the agent reads the target only in the workspace that holds it; a
+  client's knowledge base is never pointed at from another client's domain.
 
 There is no scrubbed version of an instance file. If a kit file needs instance content to make
 sense, the kit file is wrong: fix it at the source so the next change is clean.
