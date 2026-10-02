@@ -27,7 +27,7 @@ Examples in kit files use the public demo dataset (`examples/retail/`) or neutra
 1. `git status` shows no `core/`, `context/`, `instance/`, data, or `.env` files.
 2. Run the leakage scan with your own private term list:
    ```zsh
-   grep -rniEf ~/.config/data-brain/private-terms.txt . --exclude-dir=.git
+   grep -rniEf ~/.config/analytics-context-engine/private-terms.txt . --exclude-dir=.git
    ```
    The term list (client names, project keys, hostnames, people) lives outside this repo.
    Expect zero hits. A hit is a bug in the kit, fixed in place.

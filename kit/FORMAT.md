@@ -20,7 +20,7 @@ Rules that keep export possible:
   every Ossie required field has a direct source in our files.
 - Field names follow dbt MetricFlow where Ossie has no equivalent (`label`, `filter`,
   `numerator` / `denominator`), so a dbt exporter is straightforward.
-- Fields Ossie lacks export under `custom_extensions: [{vendor_name: "DATA_BRAIN", data: …}]`.
+- Fields Ossie lacks export under `custom_extensions: [{vendor_name: "ANALYTICS_CONTEXT_ENGINE", data: …}]`.
 - `caveats` and `is_not` also export as prose into `ai_context.instructions`, because vendor
   agents read only that field.
 

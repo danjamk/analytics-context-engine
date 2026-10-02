@@ -1,6 +1,6 @@
 ---
 name: upgrade
-description: Upgrade a context engine instance (operator core or domain pack) made by an older data-brain kit version — read the changelog entries since its stamp, explain each, apply only what the operator approves, and update the stamp. Use when the user says "upgrade data-brain", "update my context engine", "what's new in the kit", or after pulling a newer kit.
+description: Upgrade a context engine instance (operator core or domain pack) made by an older analytics-context-engine kit version — read the changelog entries since its stamp, explain each, apply only what the operator approves, and update the stamp. Use when the user says "upgrade analytics-context-engine", "update my context engine", "what's new in the kit", or after pulling a newer kit.
 ---
 
 # Upgrade an instance

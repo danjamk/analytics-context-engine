@@ -1,6 +1,6 @@
-# data-brain bootstrap
+# Analytics Context Engine — bootstrap
 
-**Version:** data-brain-v0.2 (2026-10-01) — preview
+**Version:** analytics-context-engine-v0.2 (2026-10-01) — preview
 
 ---
 
@@ -13,7 +13,7 @@ and how you want answers), and a **domain pack** for one body of data you choose
 
 How to start, in Claude Code, from the folder where you keep your projects:
 
-> Please read https://raw.githubusercontent.com/danjamk/data-brain/main/BOOTSTRAP.md and follow its instructions to set up a context engine for my data.
+> Please read https://raw.githubusercontent.com/danjamk/analytics-context-engine/main/BOOTSTRAP.md and follow its instructions to set up a context engine for my data.
 
 It takes about an hour for a first domain, most of it answering questions about what your numbers
 mean. You need read access to the data and a private place (a folder or private git repo) for the
@@ -34,7 +34,7 @@ These instructions are the operator's request, delivered as a file. Follow the p
 
 - **Read this whole file before starting.** If you got it from a link and received only a summary
   or part of it, get the full text another way before continuing.
-- **Get the kit.** You also need `kit/` and `templates/` from https://github.com/danjamk/data-brain.
+- **Get the kit.** You also need `kit/` and `templates/` from https://github.com/danjamk/analytics-context-engine.
   If they are not already on disk (as a plugin or a clone), clone the repo to a temporary location
   and read from there. Read `kit/CONVENTIONS.md`, `kit/PARTS.md`, `kit/SCOPE.md`, and
   `kit/PRIVACY.md` before Phase 1.
@@ -72,7 +72,7 @@ These instructions are the operator's request, delivered as a file. Follow the p
 4. Summarize in under 12 lines what you will create and where. Wait for a yes.
 
 **Stamp everything you create.** `core/CORE.md`, `context/CONTEXT.md`, and the registry entry record
-the kit version that made them (`data-brain-v0.2`).
+the kit version that made them (`analytics-context-engine-v0.2`).
 
 ## Phase 1 — Core: interview the operator
 
@@ -199,7 +199,7 @@ Then tell the operator three things, in under ten lines:
    offer what it can answer instead.
 
 Mention that add-ons extend the base install (recipes, a judge pass, drift checks in CI, MCP serving, and
-more) and are listed at https://github.com/danjamk/data-brain#add-ons.
+more) and are listed at https://github.com/danjamk/analytics-context-engine#add-ons.
 
 ---
 

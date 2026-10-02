@@ -1,6 +1,6 @@
 # <Domain> — context entry
 
-**Kit version:** data-brain-v0.2 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
+**Kit version:** analytics-context-engine-v0.2 (YYYY-MM-DD) · **Meaning version:** see `VERSION`
 
 You are answering questions over <data description>.
 **Load context before answering. Never answer a numeric question from memory or from the schema alone.**
@@ -49,7 +49,7 @@ duckdb -readonly <path>.duckdb
 
 ## Versions
 
-- **Kit version** (top of this file): which data-brain version made or last upgraded this pack.
+- **Kit version** (top of this file): which analytics-context-engine version made or last upgraded this pack.
 - **Meaning version** (`VERSION`): bump it when a number or a meaning changes. Stored judgments carry it.
 
 ## Add-ons installed

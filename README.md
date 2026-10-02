@@ -1,4 +1,4 @@
-# data-brain
+# Analytics Context Engine
 
 A context engine for agentic analytics, kept as plain files your agent reads before it answers a
 data question.
@@ -8,7 +8,7 @@ what each metric counts and excludes, who decided that, which traps the data hol
 questions it cannot answer, and a way to check an answer before anyone acts on it. This repo is
 my method for keeping that knowledge, written so an agent can set up its own copy.
 
-**Status:** `data-brain-v0.2`, **preview**. Not yet run end to end by anyone but me. Version 1.0
+**Status:** `analytics-context-engine-v0.2`, **preview**. Not yet run end to end by anyone but me. Version 1.0
 will be tagged after it has run on two real domains. See the [changelog](CHANGELOG.md).
 
 Who it's for: people who analyze data with a coding agent (Claude Code) and want the agent's
@@ -38,7 +38,7 @@ tools and for one person. See `research/landscape.md` for where the market stand
 In Claude Code, paste:
 
 ```
-Please read https://raw.githubusercontent.com/danjamk/data-brain/main/BOOTSTRAP.md and follow its instructions to set up a context engine for my data.
+Please read https://raw.githubusercontent.com/danjamk/analytics-context-engine/main/BOOTSTRAP.md and follow its instructions to set up a context engine for my data.
 ```
 
 The agent reads the guide, fetches the kit, interviews you, and builds a **core** (your defaults
@@ -48,8 +48,8 @@ answering questions about what your numbers mean.
 Or install it as a Claude Code plugin, which adds the skills as slash commands (not yet tested):
 
 ```
-/plugin marketplace add danjamk/data-brain
-/plugin install data-brain@data-brain
+/plugin marketplace add danjamk/analytics-context-engine
+/plugin install analytics-context-engine@analytics-context-engine
 ```
 
 Your instance goes in your own private repos. Never in this one.
@@ -79,11 +79,11 @@ a guide the agent follows, the same way it follows `BOOTSTRAP.md`. Conventions: 
 
 ## Versions
 
-- The kit's version is in `VERSION` and at the top of `BOOTSTRAP.md`: `data-brain-vX.Y`.
+- The kit's version is in `VERSION` and at the top of `BOOTSTRAP.md`: `analytics-context-engine-vX.Y`.
 - Everything the kit creates is stamped with the version that made it.
 - Minor versions change wording and templates. Major versions change the structure of an instance.
   Before 1.0, any version may change structure; the changelog says when.
-- `main` is the latest version. Releases from 1.0 on are also tagged `data-brain-vX.Y`.
+- `main` is the latest version. Releases from 1.0 on are also tagged `analytics-context-engine-vX.Y`.
 
 ## What's here
 
