@@ -9,7 +9,7 @@ domains:
     context: <absolute path to the domain's context/ folder>
     owner: <who rules on meaning>
     sources: [<source ids from that domain's sources.yaml>]
-    kit_version: analytics-context-engine-v0.4      # kit version that made or last upgraded the pack
+    kit_version: analytics-context-engine-v0.5      # kit version that made or last upgraded the pack
     version: <that domain's meaning VERSION, copied on last sync>
     last_loaded: YYYY-MM-DD          # freshest source in the domain
     status: active | stub | retired

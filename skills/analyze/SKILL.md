@@ -27,7 +27,10 @@ Never query first and interpret later. The kit lives at `<base>/../../`.
    audience differences for any artifact.
 10. **Learn.** Apply measured facts directly (with the date). Write a proposal for every reading
     you chose that no ruling covers (`propose` skill). Append a session log for non-trivial work.
-    If an artifact was produced, add it to `memory/deliverables.yaml`. If the same analysis is
+    If an artifact was produced, add it to `memory/outcomes.yaml`. If the same analysis is
     likely to be asked again, offer to capture it as a recipe.
 
 For high-stakes answers, run the `referee` skill's judge pass before step 9.
+
+Never run an action (`actions/`) from an analysis. If the answer should become an action, offer to
+capture it as a recipe with publish mode `action:<name>`.

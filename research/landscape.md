@@ -1,6 +1,6 @@
 # Landscape
 
-Which products cover which of the kit's 25 parts (`kit/PARTS.md`), as of **2026-09-30**, with
+Which products cover which of the kit's 26 parts (`kit/PARTS.md`), as of **2026-09-30**, with
 rows 18 and 20 corrected on 2026-10-02. Sources for each product are in `log.md` and in the source
 list below. Vendor features change monthly; check the log for anything newer. All of it is
 read-about: no product here has been tried in `lab/` yet.
@@ -8,7 +8,7 @@ read-about: no product here has been tried in `lab/` yet.
 ## Coverage matrix
 
 ● ships · ◐ partial, prose-only, or offline-only · — not found · ? not checked.
-All 25 parts are defined in this kit; the matrix shows the market, not the kit.
+All 26 parts are defined in this kit; the matrix shows the market, not the kit.
 
 | # | Part | Snowflake | Databricks | Hex | Cube | WrenAI | ktx | Catalogs¹ |
 |---|---|---|---|---|---|---|---|---|
@@ -38,7 +38,8 @@ All 25 parts are defined in this kit; the matrix shows the market, not the kit.
 | 22 | Router / summary-first / loading policy | ◐ | ◐ | ? | ● always vs agent_requested | ● | ● | ◐ |
 | 23 | Access guards | ◐ private fields | ◐ | ? | ● accessible_views | ● strict mode | ● | ◐ |
 | 24 | Provenance on each number | — | — | ◐ cites sources | — | ◐ dry-plan SQL | ◐ context provenance | — |
-| 25 | Deliverables record (added 2026-10-02) | ? | ? | ? | ? | ? | ? | ? |
+| 25 | Outcomes record: artifacts, live publishes, actions (added 2026-10-02) | ? | ? | ? | ? | ? | ? | ? |
+| 26 | Action guards: dry run, verdict gate, approval limits, undo (added 2026-10-02) | ? | ? | ? | ? | ? | ? | ? |
 
 Rows 18 and 20, outside the products above (2026-10-02): Anthropic's internal data agent puts a
 confidence tier on every answer and runs a review before delivery; Lightdash scans every agent turn

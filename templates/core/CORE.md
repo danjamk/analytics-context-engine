@@ -1,6 +1,6 @@
 # Core — <operator name>
 
-**Kit version:** analytics-context-engine-v0.4 (YYYY-MM-DD) — the kit version that made or last upgraded this core
+**Kit version:** analytics-context-engine-v0.5 (YYYY-MM-DD) — the kit version that made or last upgraded this core
 
 Entry point for every data question I ask, in any project. Read this first, then route.
 

@@ -21,6 +21,32 @@ Before v1.0, any version may change structure, and its entries say so.
 
 ---
 
+## analytics-context-engine-v0.5 (2026-10-02) — preview
+
+Outcomes beyond reports. Adds part 26; the kit now has 26 parts. Renames one file added in v0.4.
+
+- **Part 25 is now Outcomes, in `memory/outcomes.yaml`.** Affects: `memory/deliverables.yaml`
+  (renamed), the router row. Types: `artifact`, `live` (a refresh of a deployed report or
+  pipeline), `action`.
+  Existing instances: recommended if made by v0.4.
+  How to apply: rename `memory/deliverables.yaml` to `memory/outcomes.yaml`, rename the top key to
+  `outcomes`, and add `type: artifact` to existing entries. Update the router row.
+- **Recipes get a publish mode.** Affects: `memory/recipes/*.md`. `manual`, `live` (tripwires and
+  the golden check run before every publish; a failure holds it and leaves the last good version
+  up), or `action:<name>`.
+  Existing instances: optional; recommended for any recipe that feeds a deployed report.
+  How to apply: add a Publish line to the recipe header.
+- **Part 26, Action guards, and the `actions` add-on.** Affects: kit only until installed
+  (`addons/addon-actions.md`, `templates/addons/actions/action.yaml`, CONVENTIONS §2). The only
+  writes the kit allows: a named action with its own write-scoped credential, a dry run, a verdict
+  gate (PASS or PASS-WITH-CAVEAT only), approval per run or within limits, an idempotency key, and
+  an undo path. Analysis stays read-only.
+  Existing instances: not needed unless you want actions.
+- **Governance is stated as not covered.** Affects: kit only (`SCOPE.md`, `PRIVACY.md`, README).
+  Access control, row-level security and audit are assumed from the data source; the context layer
+  has owners and git history but no enforced governance.
+  Existing instances: not needed.
+
 ## analytics-context-engine-v0.4 (2026-10-02) — preview
 
 Recurring analysis and its outputs. Adds part 25; the kit now has 25 parts. Adds two instance

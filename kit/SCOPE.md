@@ -42,6 +42,20 @@ dimensions*: defined once, reused by every fact table.
 The same layering already runs in Claude Code: a user-level `~/.claude/CLAUDE.md`, a
 `CLAUDE.md` per project, and `@` imports between them.
 
+## Not covered: governance
+
+The kit does not govern the context layer. This is a known gap, and it is out of scope for now.
+
+- **Assumed from the data source:** access control, row-level security, and audit of who read
+  what. The kit's access guards (CONVENTIONS §2) keep the agent read-only; they do not decide who
+  may see which rows.
+- **Not enforced for the context layer itself:** metrics, rulings, outcomes, and how data is
+  delivered carry owner fields and git history, but nothing enforces who may change them, who may
+  read them, or that a change was reviewed. For one person that is acceptable. For a team it is
+  not; see "Personal first, team later".
+- **Actions** (add-on `actions`) have their own approval and limits, but no audit beyond the
+  outcome record.
+
 ## Walls
 
 Client domains stay in client repos and register only in that client's workspace. The core may

@@ -7,7 +7,7 @@ my viewpoint is based on current facts, not July's.
 | File | Holds | Updated |
 |---|---|---|
 | `log.md` | Dated entries, newest first: releases, new players, research, ideas | As things happen; reviewed weekly |
-| `landscape.md` | Which products cover which of the 25 parts, as of a date | Monthly, or when the log shows a shift |
+| `landscape.md` | Which products cover which of the 26 parts, as of a date | Monthly, or when the log shows a shift |
 | `numbers.md` | Benchmark figures with sources, dates, and how to cite them | When a new result lands |
 
 ## Log entry format
